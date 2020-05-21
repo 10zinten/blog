@@ -1,13 +1,17 @@
 ---
-toc: true
+toc: false
 layout: post
 description:
 categories: [notes, summary]
-title: A Summary of “Molecules of More”
+title: A Summary of “Molecule of More”
 ---
 Check out the original [book](https://www.amazon.com/Molecule-More-Chemical-Creativity_and-Determine/dp/1946885118)
 
-# Summary of “Molecules of More”
+# Summary of “Molecule of More”
         
-## བརྩི་བ།
-- "Dopamine" ཀྱི་བྱེད་ལས་དེ་ནི་གློ་བུར་དུ་བྱུང་བའི་ལས་ཞིག་ལ་ཡ་ལན་བྱེད་པར་རྟེན་ནས་བྱུང་བ་མ་ཏོག་སྤྲོ་སྐྱིད་ཀྱི་ཚོར་བ་ལ་རྟེན་ནས་བྱུང་བ་ཞིག་མ་ཡིན་ནོ།
+## བརྩེ་བ།
+- "Dopamine" ཀྱི་བྱེད་སྒོ་ནི་སྤྲོ་སྐྱིད་ཀྱི་ཚོར་བ་ལ་བརྟེན་ནས་བྱུང་བ་ཞིག་མ་ཡིན་པར་གློ་བུར་དུ་བྱུང་བའི་ལས་དང་འབྱུང་སྲིད་པའི་ལས་ཡང་ན་སྔོན་དཔག་གམ་རེ་འདུན་བྱེད་པ་ལ་བརྟེན་ནས་བྱུང་བ་ཞིག་ཡིན།
+
+
+keywords:
+> སྔོན་དཔག, རེ་འདུན།, གློ་བུར་དུ།
