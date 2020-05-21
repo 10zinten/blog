@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-05-16T13:35:23-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">A Summary of “Molecule of More”</title><link href="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html" rel="alternate" type="text/html" title="A Summary of “Molecule of More”" /><published>2020-05-16T00:00:00-05:00</published><updated>2020-05-16T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes</id><content type="html" xml:base="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html">&lt;p&gt;Check out the original &lt;a href=&quot;https://www.amazon.com/Molecule-More-Chemical-Creativity_and-Determine/dp/1946885118&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-05-21T08:08:05-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">A Summary of “Molecule of More”</title><link href="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html" rel="alternate" type="text/html" title="A Summary of “Molecule of More”" /><published>2020-05-16T00:00:00-05:00</published><updated>2020-05-16T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes</id><content type="html" xml:base="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html">&lt;p&gt;Check out the original &lt;a href=&quot;https://www.amazon.com/Molecule-More-Chemical-Creativity_and-Determine/dp/1946885118&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;summary-of-molecule-of-more&quot;&gt;Summary of “Molecule of More”&lt;/h1&gt;
 
@@ -87,7 +87,7 @@
 
 &lt;div class=&quot;inner_cell&quot;&gt;
     &lt;div class=&quot;input_area&quot;&gt;
-&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x0f40&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 0x denotes for hexadecimal&lt;/span&gt;
+&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x0f40&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 0x denotes hexadecimal&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
     &lt;/div&gt;
@@ -192,28 +192,225 @@
 
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;UTF-8---Greate-Hack-of-Unicode&quot;&gt;UTF-8 - Greate Hack of Unicode&lt;a class=&quot;anchor-link&quot; href=&quot;#UTF-8---Greate-Hack-of-Unicode&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When obviously know that for code point of a character larger than  decimal 255 can't be represented with 1 bytes (or 8-bits). It will need more than 1 bytes. So here comes &lt;code&gt;UFT-16&lt;/code&gt; which represent every character in 2 bytes and if code point is larger than that we need have &lt;code&gt;UTF-32&lt;/code&gt; wich represent every character in 4 bytes.&lt;/p&gt;
+&lt;h2 id=&quot;UTF-8---Great-Hack-of-Unicode&quot;&gt;UTF-8 - Great Hack of Unicode&lt;a class=&quot;anchor-link&quot; href=&quot;#UTF-8---Great-Hack-of-Unicode&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We obviously know that for code point of a character larger than  numeral 255 can't be represented with one byte (or 8-bits). It will need more than 1 bytes. So here comes &lt;code&gt;UFT-16&lt;/code&gt; which represent every character in two bytes and if code point is larger than that we need have &lt;code&gt;UTF-32&lt;/code&gt; wich represent every character in 4 bytes.&lt;/p&gt;
 &lt;p&gt;But there some big issues with &lt;code&gt;UTF-16&lt;/code&gt; and &lt;code&gt;UTF-32&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Waste lots of memory, lots of bytes with decimal value 0.&lt;/li&gt;
+&lt;li&gt;Waste lots of memory, lots of bytes with all 0s.&lt;/li&gt;
 &lt;li&gt;Produces a 0x00 (i.e 00000000), which in many old computer interpreted as end of the string of characters.&lt;/li&gt;
 &lt;li&gt;Not compatible with ASCII.&lt;/li&gt;
 &lt;li&gt;Required &lt;a href=&quot;https://en.wikipedia.org/wiki/Byte_order_mark&quot;&gt;BOM&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Luckily &lt;code&gt;UTF-8&lt;/code&gt; solves all the above problem with it's wonderful hack. It start by just taking ASCII.&lt;/p&gt;
+&lt;p&gt;Luckily &lt;code&gt;UTF-8&lt;/code&gt; solves all these problems with it's wonderful hack. The hack is how it can represent all other non ASCII characters.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h3 id=&quot;UTF-8-Representation&quot;&gt;UTF-8 Representation&lt;a class=&quot;anchor-link&quot; href=&quot;#UTF-8-Representation&quot;&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;UTF-8-Character-Representation&quot;&gt;UTF-8 Character Representation&lt;a class=&quot;anchor-link&quot; href=&quot;#UTF-8-Character-Representation&quot;&gt; &lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h3 id=&quot;Calulating-Unicode-Index-of-a-Character-from-It's-bits.&quot;&gt;Calulating Unicode Index of a Character from It's bits.&lt;a class=&quot;anchor-link&quot; href=&quot;#Calulating-Unicode-Index-of-a-Character-from-It's-bits.&quot;&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;UTF-8&lt;/code&gt; was designed for backwrad compatibility with ASCII. So, the first 128 characters are ASCII characters with exact same order. Since unicode character code point order below the 255 requires extra bytes which makes &lt;code&gt;UTF-8&lt;/code&gt; a &lt;strong&gt;variable-length&lt;/strong&gt; encoding scheme and it can encode code points in one to four bytes.&lt;/p&gt;
+&lt;p&gt;But the questions remain, how it represent unicode character which requires more than one byte while still avoiding eight consecutive 0s ? How it can specify the start of a characters ?. Well, let me explain it's unicode character representation along with an example.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;p&gt;Consider we are encoding first letter of Tibetan alphabet, &lt;code&gt;ཀ&lt;/code&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The Unicode code point for &lt;code&gt;ཀ&lt;/code&gt; is U+0F40&lt;/li&gt;
+&lt;li&gt;Hexadecimal 0F40 is binary 00001111 01000000&lt;/li&gt;
+&lt;li&gt;In &lt;code&gt;UTF-8&lt;/code&gt; encoding, first four bits tells how many bytes required to represent the given code point. According &lt;code&gt;UTF-8&lt;/code&gt; scheme table, &lt;code&gt;ཀ&lt;/code&gt; will need three bytes, it will be three 1s (like 1110...).&lt;/li&gt;
+&lt;li&gt;Then four most significant bits of the code point are stored in the remaining low order four bits of the first byte (like &lt;strong&gt;1110&lt;/strong&gt;0000).&lt;/li&gt;
+&lt;li&gt;All continuation bytes contains six bits from the code point because &lt;strong&gt;10&lt;/strong&gt; is stored in the high order two bits to mark it as a continuation byte. It also avoids eight consecutive 0s. So, the remaing bits code point is placed like this &lt;strong&gt;10&lt;/strong&gt;111101 &lt;strong&gt;10&lt;/strong&gt;000000.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So &lt;code&gt;ཀ&lt;/code&gt; in UTF-8 binary is &lt;strong&gt;1110&lt;/strong&gt;0000 &lt;strong&gt;10&lt;/strong&gt;111101 &lt;strong&gt;10&lt;/strong&gt;000000. For more about UTF follow this &lt;a href=&quot;https://en.wikipedia.org/wiki/UTF-8&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;h3 id=&quot;Calulating-Numeral-value-of-a-Unicode-code-point-in-python&quot;&gt;Calulating Numeral value of a Unicode code point in python&lt;a class=&quot;anchor-link&quot; href=&quot;#Calulating-Numeral-value-of-a-Unicode-code-point-in-python&quot;&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+    
+    
+&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
+&lt;div class=&quot;input&quot;&gt;
+
+&lt;div class=&quot;inner_cell&quot;&gt;
+    &lt;div class=&quot;input_area&quot;&gt;
+&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ཀ&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# in hexadecimal&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;output_wrapper&quot;&gt;
+&lt;div class=&quot;output&quot;&gt;
+
+&lt;div class=&quot;output_area&quot;&gt;
+
+
+
+&lt;div class=&quot;output_text output_subarea output_execute_result&quot;&gt;
+&lt;pre&gt;b&amp;#39;\xe0\xbd\x80&amp;#39;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    
+
+    
+    
+&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
+&lt;div class=&quot;input&quot;&gt;
+
+&lt;div class=&quot;inner_cell&quot;&gt;
+    &lt;div class=&quot;input_area&quot;&gt;
+&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;08b&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0xe0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xbd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# convert hex to binary &lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;output_wrapper&quot;&gt;
+&lt;div class=&quot;output&quot;&gt;
+
+&lt;div class=&quot;output_area&quot;&gt;
+
+
+
+&lt;div class=&quot;output_text output_subarea output_execute_result&quot;&gt;
+&lt;pre&gt;&amp;#39;11100000 10111101 10000000&amp;#39;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    
+
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;p&gt;As you can see here, we got the exact same binary value of &lt;code&gt;ཀ&lt;/code&gt; as above.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;p&gt;Extract code point bits from UTF-8 bits:&lt;/p&gt;
+&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Seperate out code point bits, 1110&lt;strong&gt;0000&lt;/strong&gt; 10&lt;strong&gt;111101&lt;/strong&gt; 10&lt;strong&gt;000000&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;We got the code point bits of &lt;code&gt;ཀ&lt;/code&gt;, 00001111 01000000&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;p&gt;convert extracted code point bits to int&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+    
+    
+&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
+&lt;div class=&quot;input&quot;&gt;
+
+&lt;div class=&quot;inner_cell&quot;&gt;
+    &lt;div class=&quot;input_area&quot;&gt;
+&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;0000111101000000&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;output_wrapper&quot;&gt;
+&lt;div class=&quot;output&quot;&gt;
+
+&lt;div class=&quot;output_area&quot;&gt;
+
+
+
+&lt;div class=&quot;output_text output_subarea output_execute_result&quot;&gt;
+&lt;pre&gt;3904&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    
+
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;p&gt;Compare it with python's &lt;code&gt;ord&lt;/code&gt; function&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+    
+    
+&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
+&lt;div class=&quot;input&quot;&gt;
+
+&lt;div class=&quot;inner_cell&quot;&gt;
+    &lt;div class=&quot;input_area&quot;&gt;
+&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;0000111101000000&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;ord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ཀ&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;output_wrapper&quot;&gt;
+&lt;div class=&quot;output&quot;&gt;
+
+&lt;div class=&quot;output_area&quot;&gt;
+
+
+
+&lt;div class=&quot;output_text output_subarea output_execute_result&quot;&gt;
+&lt;pre&gt;True&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    
+
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;h3 id=&quot;Fun-facts&quot;&gt;Fun facts&lt;a class=&quot;anchor-link&quot; href=&quot;#Fun-facts&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;95% of web page in the internet uses &lt;code&gt;UTF-8&lt;/code&gt; encoding at time of wiriting this blog.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
