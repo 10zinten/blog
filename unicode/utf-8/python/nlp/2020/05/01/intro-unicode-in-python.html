@@ -398,11 +398,11 @@ window.onload = wrap_img;
 <ol>
 <li>The Unicode code point for <code>ཀ</code> is U+0F40</li>
 <li>Hexadecimal 0F40 is binary 00001111 01000000</li>
-<li>In <code>UTF-8</code> encoding, first four bits tells how many bytes required to represent the given code point. According <code>UTF-8</code> scheme table, <code>ཀ</code> will need three bytes, it will be three 1s (like 1110...).</li>
+<li>In <code>UTF-8</code> encoding, first four bits tells how many bytes required to represent the given code point. According <code>UTF-8</code> scheme table, <code>ཀ</code> will need three bytes. So, the those four bits will have three 1s (like 1110...).</li>
 <li>Then four most significant bits of the code point are stored in the remaining low order four bits of the first byte (like <strong>1110</strong>0000).</li>
-<li>All continuation bytes contains six bits from the code point because <strong>10</strong> is stored in the high order two bits to mark it as a continuation byte. It also avoids eight consecutive 0s. So, the remaing bits code point is placed like this <strong>10</strong>111101 <strong>10</strong>000000.</li>
+<li>All continuation bytes contains six bits from the code point because <strong>10</strong> is stored in the high order two bits to mark it as a continuation byte. It also avoids eight consecutive 0s. So, the remainingg bits of code point is placed like this <strong>10</strong>111101 <strong>10</strong>000000.</li>
 </ol>
-<p>So <code>ཀ</code> in UTF-8 binary is <strong>1110</strong>0000 <strong>10</strong>111101 <strong>10</strong>000000. For more about UTF follow this <a href="https://en.wikipedia.org/wiki/UTF-8">link</a></p>
+<p>So <code>ཀ</code> in UTF-8 binary is <strong>1110</strong>0000 <strong>10</strong>111101 <strong>10</strong>000000. For more about UTF-8 follow this <a href="https://en.wikipedia.org/wiki/UTF-8">link</a></p>
 
 </div>
 </div>
@@ -548,7 +548,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Compare it with python's <code>ord</code> function</p>
+<p>Compare it with output of python's <code>ord</code> function</p>
 
 </div>
 </div>
@@ -593,7 +593,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#Fun-facts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fun facts<a class="anchor-link" href="#Fun-facts"> </a>
 </h3>
 <ul>
-<li>95% of web page in the internet uses <code>UTF-8</code> encoding at time of wiriting this blog.</li>
+<li>95% of web pages in the internet uses <code>UTF-8</code> encoding at time of wiriting this blog.</li>
 </ul>
 
 </div>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-05-21T08:08:05-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">A Summary of “Molecule of More”</title><link href="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html" rel="alternate" type="text/html" title="A Summary of “Molecule of More”" /><published>2020-05-16T00:00:00-05:00</published><updated>2020-05-16T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes</id><content type="html" xml:base="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html">&lt;p&gt;Check out the original &lt;a href=&quot;https://www.amazon.com/Molecule-More-Chemical-Creativity_and-Determine/dp/1946885118&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-05-22T01:14:13-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">A Summary of “Molecule of More”</title><link href="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html" rel="alternate" type="text/html" title="A Summary of “Molecule of More”" /><published>2020-05-16T00:00:00-05:00</published><updated>2020-05-16T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes</id><content type="html" xml:base="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html">&lt;p&gt;Check out the original &lt;a href=&quot;https://www.amazon.com/Molecule-More-Chemical-Creativity_and-Determine/dp/1946885118&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;summary-of-molecule-of-more&quot;&gt;Summary of “Molecule of More”&lt;/h1&gt;
 
@@ -225,11 +225,11 @@
 &lt;ol&gt;
 &lt;li&gt;The Unicode code point for &lt;code&gt;ཀ&lt;/code&gt; is U+0F40&lt;/li&gt;
 &lt;li&gt;Hexadecimal 0F40 is binary 00001111 01000000&lt;/li&gt;
-&lt;li&gt;In &lt;code&gt;UTF-8&lt;/code&gt; encoding, first four bits tells how many bytes required to represent the given code point. According &lt;code&gt;UTF-8&lt;/code&gt; scheme table, &lt;code&gt;ཀ&lt;/code&gt; will need three bytes, it will be three 1s (like 1110...).&lt;/li&gt;
+&lt;li&gt;In &lt;code&gt;UTF-8&lt;/code&gt; encoding, first four bits tells how many bytes required to represent the given code point. According &lt;code&gt;UTF-8&lt;/code&gt; scheme table, &lt;code&gt;ཀ&lt;/code&gt; will need three bytes. So, the those four bits will have three 1s (like 1110...).&lt;/li&gt;
 &lt;li&gt;Then four most significant bits of the code point are stored in the remaining low order four bits of the first byte (like &lt;strong&gt;1110&lt;/strong&gt;0000).&lt;/li&gt;
-&lt;li&gt;All continuation bytes contains six bits from the code point because &lt;strong&gt;10&lt;/strong&gt; is stored in the high order two bits to mark it as a continuation byte. It also avoids eight consecutive 0s. So, the remaing bits code point is placed like this &lt;strong&gt;10&lt;/strong&gt;111101 &lt;strong&gt;10&lt;/strong&gt;000000.&lt;/li&gt;
+&lt;li&gt;All continuation bytes contains six bits from the code point because &lt;strong&gt;10&lt;/strong&gt; is stored in the high order two bits to mark it as a continuation byte. It also avoids eight consecutive 0s. So, the remainingg bits of code point is placed like this &lt;strong&gt;10&lt;/strong&gt;111101 &lt;strong&gt;10&lt;/strong&gt;000000.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;So &lt;code&gt;ཀ&lt;/code&gt; in UTF-8 binary is &lt;strong&gt;1110&lt;/strong&gt;0000 &lt;strong&gt;10&lt;/strong&gt;111101 &lt;strong&gt;10&lt;/strong&gt;000000. For more about UTF follow this &lt;a href=&quot;https://en.wikipedia.org/wiki/UTF-8&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;So &lt;code&gt;ཀ&lt;/code&gt; in UTF-8 binary is &lt;strong&gt;1110&lt;/strong&gt;0000 &lt;strong&gt;10&lt;/strong&gt;111101 &lt;strong&gt;10&lt;/strong&gt;000000. For more about UTF-8 follow this &lt;a href=&quot;https://en.wikipedia.org/wiki/UTF-8&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -367,7 +367,7 @@
 
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;Compare it with python's &lt;code&gt;ord&lt;/code&gt; function&lt;/p&gt;
+&lt;p&gt;Compare it with output of python's &lt;code&gt;ord&lt;/code&gt; function&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -408,7 +408,7 @@
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
 &lt;h3 id=&quot;Fun-facts&quot;&gt;Fun facts&lt;a class=&quot;anchor-link&quot; href=&quot;#Fun-facts&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;95% of web page in the internet uses &lt;code&gt;UTF-8&lt;/code&gt; encoding at time of wiriting this blog.&lt;/li&gt;
+&lt;li&gt;95% of web pages in the internet uses &lt;code&gt;UTF-8&lt;/code&gt; encoding at time of wiriting this blog.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;/div&gt;
