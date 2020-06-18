@@ -27,7 +27,7 @@ Here is the original [blog](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-de
     - Think of reponsibilities as use cases.
     - Each use case should only be handled in one place therefore creating one obvious way to do things (following the Zen) hence "one reason to change" only if use case has changed (following SRP).
     - The code is sparse, and not dense, simple not complex, flat and not nested with SRP
-    - From the example code, the original class `FPTClient` has two resposibilities (handles two use cases), `FTP` and `SFTP` server, therefore two reason to change the class. Splitting the `FPTClient` class into 2 classes to handle echa server separately fixes issue.
+    - From the example, the original class `FPTClient` has two resposibilities (handles two use cases), `FTP` and `SFTP` server, therefore two reason to change the class. Splitting the `FPTClient` class into 2 classes to handle echa server separately fixes issue.
 
 ## Open Closed Principle (OCP)
 - **Definition:** *Software Entities (classes, functions, modules) should be open for extension but closed to change.*
@@ -37,4 +37,11 @@ Here is the original [blog](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-de
     - Forcing calling code to be updated is the **Change**, includes chaging function name, swapping the order of parameter or adding a non-default parameter.
     - Not forcing calling code to be updated while providing new fuctionality, includes renaming a parameter, adding a new parameter with a default value, or adding `args`, or `kwarg` (relates to Effective python, Item 23: *Provide Optional Behavior with Keyword Arguments*)
     - In terms of classes, changing methods signatures is the **Change** and adding new method is the **Extension**.
-    - From the example code, adding `upload_bulk` and `download_bulk` to the `FTPClient` extends the class, satisfying the **OCP**. This also satisfies **SRP** (only one reason to change the `FTPClient`, i.e., support for bulk download and upload). Although we can create `BulkFTPCLient` inheriting from `FTPClient` but for that we have to change the singnature for `download` and `upload` method as it would return list of bytes instead of just bytes therefore voilating the **OCP** as well as **LSP**.
+    - From the example, adding `upload_bulk` and `download_bulk` to the `FTPClient` extends the class, satisfying the **OCP**. This also satisfies **SRP** (only one reason to change the `FTPClient`, i.e., support for bulk download and upload). Although we can create `BulkFTPCLient` inheriting from `FTPClient` but for that we have to change the singnature for `download` and `upload` method as it would return list of bytes instead of just bytes therefore voilating the **OCP** as well as **LSP**.
+    
+## Liskov's Substituitability Principle (LSP)- 
+- **Definition:** *If S is a subtype of T, then objects of type T may be replaced with objects of Type S.*
+- **Relevant Zen:** *Special cases aren’t special enough to break the rules.*
+- **Notes**:
+    - This principle says that "Any child class can replace it's parent class withour breaking functionality".
+    - From the example, `SFTPClient` object can replace the `FTPClient` object, meaning the calling code won't be aware of calling `upload` and `download` methods of `SFPTClient` or `FTPClient`. Take an another case of specialized  case of FTP file transfer is FTPS (different from SFTP). 
