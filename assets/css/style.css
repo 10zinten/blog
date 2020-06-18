@@ -341,8 +341,6 @@ table td { border: 1px solid #e8e8e8; }
 
 .post-content p, .post-content li { color: #515151; }
 
-.post-link { font-weight: normal; }
-
 h1 { margin-top: 2.5rem !important; }
 
 h2 { margin-top: 2rem !important; }
@@ -351,7 +349,7 @@ h3, h4 { margin-top: 1.5rem !important; }
 
 p { margin-top: 1rem !important; margin-bottom: 1rem !important; }
 
-h1, h2, h3, h4 { font-weight: normal !important; margin-bottom: 0.5rem !important; }
+h1, h2, h3, h4 { margin-bottom: 0.5rem !important; font-size: 200% !important; }
 
 h1 code, h2 code, h3 code, h4 code { font-size: 100%; }
 
