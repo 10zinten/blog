@@ -24,12 +24,12 @@
 
 // make non-headings slightly lighter
 .post-content p, .post-content li {
-//    font-size: 20px;
+   //font-size: 20px;
    color: #515151;
 }
 
 .post-link{
-    font-weight: normal;
+    //font-weight: normal;
 }
 
 // change padding of headings
@@ -51,8 +51,9 @@ p {
 }
 
 h1, h2, h3, h4 {
-    font-weight: normal !important;
-    margin-bottom:0.5rem !important;  
+    //font-weight: normal !important;
+    margin-bottom:0.5rem !important;
+    font-size: 200% !important;  
     code {
       font-size: 100%;
     }
