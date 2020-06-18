@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -127,14 +127,18 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#what-is-solid-design">What is SOLID Design</a></li>
-<li class="toc-entry toc-h1"><a href="#single-responsibility-principle-srp">Single Responsibility Principle (SRP)</a></li>
+<li class="toc-entry toc-h1"><a href="#what-is-solid-design">What is SOLID Design</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#single-responsibility-principle-srp">Single Responsibility Principle (SRP)</a></li>
+<li class="toc-entry toc-h2"><a href="#open-closed-principle-ocp">Open Closed Principle (OCP)</a></li>
+</ul>
+</li>
 </ul><p>Here is the original <a href="https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i">blog</a></p>
 
 <h1 id="what-is-solid-design">
 <a class="anchor" href="#what-is-solid-design" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is SOLID Design</h1>
 <ul>
-  <li>SOILD design comes from paper “<a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjHkI-g5YrqAhUczjgGHaBSChAQFjACegQIARAB&amp;url=https%3A%2F%2Ffi.ort.edu.uy%2Finnovaportal%2Ffile%2F2032%2F1%2Fdesign_principles.pdf&amp;usg=AOvVaw1i8O0yvzDSdHlwinUGJxSy">Design Principles and Design Patterns</a>” by <a href="https://en.wikipedia.org/wiki/Robert_C._Martin">Robert C. Martin</a>
+  <li>SOILD design comes from paper <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjHkI-g5YrqAhUczjgGHaBSChAQFjACegQIARAB&amp;url=https%3A%2F%2Ffi.ort.edu.uy%2Finnovaportal%2Ffile%2F2032%2F1%2Fdesign_principles.pdf&amp;usg=AOvVaw1i8O0yvzDSdHlwinUGJxSy">Design Principles and Design Patterns</a> by <a href="https://en.wikipedia.org/wiki/Robert_C._Martin">Robert C. Martin</a>
 </li>
   <li>This mnemonic SOLID is attributed to <a href="https://twitter.com/mfeathers">Michael Feathers</a>
 </li>
@@ -157,8 +161,8 @@ window.onload = wrap_img;
 <strong>SOLID</strong> design principles are meant to be used holistically to get the real value out of it.</li>
 </ul>
 
-<h1 id="single-responsibility-principle-srp">
-<a class="anchor" href="#single-responsibility-principle-srp" aria-hidden="true"><span class="octicon octicon-link"></span></a>Single Responsibility Principle (SRP)</h1>
+<h2 id="single-responsibility-principle-srp">
+<a class="anchor" href="#single-responsibility-principle-srp" aria-hidden="true"><span class="octicon octicon-link"></span></a>Single Responsibility Principle (SRP)</h2>
 <ul>
   <li>
 <strong>Definition:</strong> <em>Every module/class should only have one responsibility and therefore only one reason to change.</em>
@@ -173,6 +177,28 @@ window.onload = wrap_img;
       <li>Think of reponsibilities as use cases.</li>
       <li>Each use case should only be handled in one place therefore creating one obvious way to do things (following the Zen) hence “one reason to change” only if use case has changed (following SRP).</li>
       <li>The code is sparse, and not dense, simple not complex, flat and not nested with SRP</li>
+      <li>From the example code, the original class <code class="highlighter-rouge">FPTClient</code> has two resposibilities (handles two use cases), <code class="highlighter-rouge">FTP</code> and <code class="highlighter-rouge">SFTP</code> server, therefore two reason to change the class. Splitting the <code class="highlighter-rouge">FPTClient</code> class into 2 classes to handle echa server separately fixes issue.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="open-closed-principle-ocp">
+<a class="anchor" href="#open-closed-principle-ocp" aria-hidden="true"><span class="octicon octicon-link"></span></a>Open Closed Principle (OCP)</h2>
+<ul>
+  <li>
+<strong>Definition:</strong> <em>Software Entities (classes, functions, modules) should be open for extension but closed to change.</em>
+</li>
+  <li>
+<strong>Relevant Zen:</strong> <em>Simple is better than complex. Complex is better than complicated.</em>
+</li>
+  <li>
+<strong>Notes</strong>:
+    <ul>
+      <li>Think of <strong>Change</strong> and <strong>Extension</strong> in term of <em>function signatures</em>.</li>
+      <li>Forcing calling code to be updated is the <strong>Change</strong>, includes chaging function name, swapping the order of parameter or adding a non-default parameter.</li>
+      <li>Not forcing calling code to be updated while providing new fuctionality, includes renaming a parameter, adding a new parameter with a default value, or adding <code class="highlighter-rouge">args</code>, or <code class="highlighter-rouge">kwarg</code> (relates to Effective python, Item 23: <em>Provide Optional Behavior with Keyword Arguments</em>)</li>
+      <li>In terms of classes, changing methods signatures is the <strong>Change</strong> and adding new method is the <strong>Extension</strong>.</li>
+      <li>From the example code, adding <code class="highlighter-rouge">upload_bulk</code> and <code class="highlighter-rouge">download_bulk</code> to the <code class="highlighter-rouge">FTPClient</code> extends the class, satisfying the <strong>OCP</strong>. This also satisfies <strong>SRP</strong> (only one reason to change the <code class="highlighter-rouge">FTPClient</code>, i.e., support for bulk download and upload). Although we can create <code class="highlighter-rouge">BulkFTPCLient</code> inheriting from <code class="highlighter-rouge">FTPClient</code> but for that we have to change the singnature for <code class="highlighter-rouge">download</code> and <code class="highlighter-rouge">upload</code> method as it would return list of bytes instead of just bytes therefore voilating the <strong>OCP</strong> as well as <strong>LSP</strong>.</li>
     </ul>
   </li>
 </ul>
