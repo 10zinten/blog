@@ -1,24 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-18T03:08:23-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">Summary of SOLID Principles</title><link href="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html" rel="alternate" type="text/html" title="Summary of SOLID Principles" /><published>2020-06-18T00:00:00-05:00</published><updated>2020-06-18T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary</id><content type="html" xml:base="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html">&lt;h1 id=&quot;what-is-solid-design&quot;&gt;What is SOLID Design&lt;/h1&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- SOILD design comes from paper &quot;[Design Principles and Design Patterns](https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwjHkI-g5YrqAhUczjgGHaBSChAQFjACegQIARAB&amp;amp;url=https%3A%2F%2Ffi.ort.edu.uy%2Finnovaportal%2Ffile%2F2032%2F1%2Fdesign_principles.pdf&amp;amp;usg=AOvVaw1i8O0yvzDSdHlwinUGJxSy)&quot; by [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin)
-- This mnemonic SOLID is attributed to [Michael Feathers](https://twitter.com/mfeathers)
-- The principles are:
-    - **S**ingle Resposibility Principle *SRP*
-    - **O**pen Closed Principle
-    - **L**iskov's Substitutabilty Principle
-    - **I**nterface Segregation Principle
-    - **D**ependency Inversion Principle
-- **SOLID** design principles are meant to be used holistically to get the real value out of it.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-18T07:14:59-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">Summary of SOLID Principles</title><link href="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html" rel="alternate" type="text/html" title="Summary of SOLID Principles" /><published>2020-06-18T00:00:00-05:00</published><updated>2020-06-18T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary</id><content type="html" xml:base="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html">&lt;p&gt;Here is the original &lt;a href=&quot;https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i&quot;&gt;blog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;what-is-solid-design&quot;&gt;What is SOLID Design&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;SOILD design comes from paper “&lt;a href=&quot;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwjHkI-g5YrqAhUczjgGHaBSChAQFjACegQIARAB&amp;amp;url=https%3A%2F%2Ffi.ort.edu.uy%2Finnovaportal%2Ffile%2F2032%2F1%2Fdesign_principles.pdf&amp;amp;usg=AOvVaw1i8O0yvzDSdHlwinUGJxSy&quot;&gt;Design Principles and Design Patterns&lt;/a&gt;” by &lt;a href=&quot;https://en.wikipedia.org/wiki/Robert_C._Martin&quot;&gt;Robert C. Martin&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This mnemonic SOLID is attributed to &lt;a href=&quot;https://twitter.com/mfeathers&quot;&gt;Michael Feathers&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The principles are:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;S&lt;/strong&gt;ingle Resposibility Principle &lt;em&gt;SRP&lt;/em&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;O&lt;/strong&gt;pen Closed Principle&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;L&lt;/strong&gt;iskov’s Substitutabilty Principle&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;I&lt;/strong&gt;nterface Segregation Principle&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;D&lt;/strong&gt;ependency Inversion Principle&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;SOLID&lt;/strong&gt; design principles are meant to be used holistically to get the real value out of it.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&quot;single-responsibility-principle-srp&quot;&gt;Single Responsibility Principle (SRP)&lt;/h1&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- **Definition:** *Every module/class should only have one responsibility and therefore only one reason to change.*
-- **Relevant Zen:** *There should be one-- and preferably only one --obvious way to do things.*
-- **Notes**:
-    - It increases [cohesion](https://en.wikipedia.org/wiki/Cohesion_\(computer_science\) and [loose coupling](https://en.wikipedia.org/wiki/Loose_coupling) by organizing code around responsibilities.
-    - Think of reponsibility as use cases.
-    - Each use case should be should only be handled in one place therefore creating one obvious way to do things hence &quot;one reason to change&quot; only if use case has changed.
-    -
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">What is SOLID Design - SOILD design comes from paper &quot;[Design Principles and Design Patterns](https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwjHkI-g5YrqAhUczjgGHaBSChAQFjACegQIARAB&amp;amp;url=https%3A%2F%2Ffi.ort.edu.uy%2Finnovaportal%2Ffile%2F2032%2F1%2Fdesign_principles.pdf&amp;amp;usg=AOvVaw1i8O0yvzDSdHlwinUGJxSy)&quot; by [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) - This mnemonic SOLID is attributed to [Michael Feathers](https://twitter.com/mfeathers) - The principles are: - **S**ingle Resposibility Principle *SRP* - **O**pen Closed Principle - **L**iskov's Substitutabilty Principle - **I**nterface Segregation Principle - **D**ependency Inversion Principle - **SOLID** design principles are meant to be used holistically to get the real value out of it.</summary></entry><entry><title type="html">A Summary of “Molecule of More”</title><link href="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html" rel="alternate" type="text/html" title="A Summary of “Molecule of More”" /><published>2020-05-16T00:00:00-05:00</published><updated>2020-05-16T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes</id><content type="html" xml:base="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html">&lt;p&gt;Check out the original &lt;a href=&quot;https://www.amazon.com/Molecule-More-Chemical-Creativity_and-Determine/dp/1946885118&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Definition:&lt;/strong&gt; &lt;em&gt;Every module/class should only have one responsibility and therefore only one reason to change.&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Relevant Zen:&lt;/strong&gt; &lt;em&gt;There should be one– and preferably only one –obvious way to do things.&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Notes&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;It increases &lt;a href=&quot;https://en.wikipedia.org/wiki/Cohesion_\(computer_science\)&quot;&gt;cohesion&lt;/a&gt; and &lt;a href=&quot;https://en.wikipedia.org/wiki/Loose_coupling&quot;&gt;loose coupling&lt;/a&gt; by organizing code around responsibilities.&lt;/li&gt;
+      &lt;li&gt;Think of reponsibilities as use cases.&lt;/li&gt;
+      &lt;li&gt;Each use case should only be handled in one place therefore creating one obvious way to do things (following the Zen) hence “one reason to change” only if use case has changed (following SRP).&lt;/li&gt;
+      &lt;li&gt;The code is sparse, and not dense, simple not complex, flat and not nested with SRP&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Here is the original blog</summary></entry><entry><title type="html">A Summary of “Molecule of More”</title><link href="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html" rel="alternate" type="text/html" title="A Summary of “Molecule of More”" /><published>2020-05-16T00:00:00-05:00</published><updated>2020-05-16T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes</id><content type="html" xml:base="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html">&lt;p&gt;Check out the original &lt;a href=&quot;https://www.amazon.com/Molecule-More-Chemical-Creativity_and-Determine/dp/1946885118&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;summary-of-molecule-of-more&quot;&gt;Summary of “Molecule of More”&lt;/h1&gt;
 
