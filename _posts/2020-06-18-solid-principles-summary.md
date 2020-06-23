@@ -88,7 +88,9 @@ title: Summary of SOLID Principles
             for client in [ftp, sftp, ftps, s3, scp]:
                 exchange(client, b'Hello', 'greeting.txt')
         ```
+        - High-level function `exchange` depends on abstraction `FileTransferClient` and all the clients implementation depends on it too.
 # Refrences
+- [Python SOLID Presentation](https://www.slideshare.net/DrTrucho/python-solid)
 - [A Pythonic Guide to SOLID Design Principles ](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i)
 - [S.O.L.I.D Principles explained in Python with examples.](https://medium.com/@dorela/s-o-l-i-d-principles-explained-in-python-with-examples-3332520b90ff)
 - [SOLID Python: SOLID principles applied to a dynamic programming language](https://www.researchgate.net/publication/323935872_SOLID_Python_SOLID_principles_applied_to_a_dynamic_programming_language)
