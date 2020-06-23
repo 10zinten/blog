@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -132,6 +132,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#single-responsibility-principle-srp">Single Responsibility Principle (SRP)</a></li>
 <li class="toc-entry toc-h2"><a href="#open-closed-principle-ocp">Open Closed Principle (OCP)</a></li>
 <li class="toc-entry toc-h2"><a href="#liskovs-substituitability-principle-lsp-">Liskov’s Substituitability Principle (LSP)-</a></li>
+<li class="toc-entry toc-h2"><a href="#interface-segregation-principle-isp">Interface Segregation Principle (ISP)</a></li>
 </ul>
 </li>
 </ul><p>Here is the original <a href="https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i">blog</a></p>
@@ -220,6 +221,36 @@ window.onload = wrap_img;
     <ul>
       <li>This principle says that “Any child class can replace it’s parent class without breaking the functionality”.</li>
       <li>From the example, <code class="highlighter-rouge">SFTPClient</code> object can replace the <code class="highlighter-rouge">FTPClient</code> object, meaning the calling code won’t be aware of calling <code class="highlighter-rouge">upload</code> and <code class="highlighter-rouge">download</code> methods of <code class="highlighter-rouge">SFPTClient</code> or <code class="highlighter-rouge">FTPClient</code>. Take an another case of specialized  case of FTP file transfer is FTPS (different from SFTP), creating a new class <code class="highlighter-rouge">FTPSClient</code> that extends <code class="highlighter-rouge">FTPClient</code> is the way to go.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="interface-segregation-principle-isp">
+<a class="anchor" href="#interface-segregation-principle-isp" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interface Segregation Principle (ISP)</h2>
+<ul>
+  <li>
+<strong>Definition:</strong> <em>A client should not depend on methods it does not use.</em>
+</li>
+  <li>
+<strong>Relevant Zen:</strong> <em>Readability Counts &amp;&amp; complicated is better than complex.</em>
+</li>
+  <li>
+<strong>Notes</strong>:
+    <ul>
+      <li>It’s about making reasonable choices for how other developers will interface with your code.</li>
+      <li>A good interface will have good abstraction making the code more readable (follows the Zen).</li>
+      <li>from the example, Since <code class="highlighter-rouge">S3</code> not a special case of <code class="highlighter-rouge">FTP</code>. We create a <code class="highlighter-rouge">FileTransferCLient</code> abstract class (it’s closest thing to interface in python) with method <code class="highlighter-rouge">download</code> and <code class="highlighter-rouge">upload</code>, since that <code class="highlighter-rouge">S3</code> and <code class="highlighter-rouge">FTP</code> have in common, the file transfer protocol.  Similarly we can have <code class="highlighter-rouge">BulkFileTransferClient</code> abstract class. So, any functions can be generic by operating on <code class="highlighter-rouge">FileTransferClient</code> instead of coulping with specific client like <code class="highlighter-rouge">FPTClient</code> or <code class="highlighter-rouge">S3Client</code>.</li>
+      <li>Example code:
+        <div class="highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  from abc import ABC
+  def class FileTransferClient(ABC):
+def upload(self, file:bytes):
+  pass
+
+def download(self, target:str) -&gt; bytes:
+  pass
+</code></pre></div>        </div>
+      </li>
     </ul>
   </li>
 </ul>

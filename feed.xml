@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-23T00:56:30-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">Summary of SOLID Principles</title><link href="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html" rel="alternate" type="text/html" title="Summary of SOLID Principles" /><published>2020-06-18T00:00:00-05:00</published><updated>2020-06-18T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary</id><content type="html" xml:base="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html">&lt;p&gt;Here is the original &lt;a href=&quot;https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i&quot;&gt;blog&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-23T01:39:29-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">Summary of SOLID Principles</title><link href="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html" rel="alternate" type="text/html" title="Summary of SOLID Principles" /><published>2020-06-18T00:00:00-05:00</published><updated>2020-06-18T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary</id><content type="html" xml:base="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html">&lt;p&gt;Here is the original &lt;a href=&quot;https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i&quot;&gt;blog&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;what-is-solid-design&quot;&gt;What is SOLID Design&lt;/h1&gt;
 &lt;ul&gt;
@@ -55,6 +55,29 @@
     &lt;ul&gt;
       &lt;li&gt;This principle says that “Any child class can replace it’s parent class without breaking the functionality”.&lt;/li&gt;
       &lt;li&gt;From the example, &lt;code class=&quot;highlighter-rouge&quot;&gt;SFTPClient&lt;/code&gt; object can replace the &lt;code class=&quot;highlighter-rouge&quot;&gt;FTPClient&lt;/code&gt; object, meaning the calling code won’t be aware of calling &lt;code class=&quot;highlighter-rouge&quot;&gt;upload&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;download&lt;/code&gt; methods of &lt;code class=&quot;highlighter-rouge&quot;&gt;SFPTClient&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;FTPClient&lt;/code&gt;. Take an another case of specialized  case of FTP file transfer is FTPS (different from SFTP), creating a new class &lt;code class=&quot;highlighter-rouge&quot;&gt;FTPSClient&lt;/code&gt; that extends &lt;code class=&quot;highlighter-rouge&quot;&gt;FTPClient&lt;/code&gt; is the way to go.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;interface-segregation-principle-isp&quot;&gt;Interface Segregation Principle (ISP)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Definition:&lt;/strong&gt; &lt;em&gt;A client should not depend on methods it does not use.&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Relevant Zen:&lt;/strong&gt; &lt;em&gt;Readability Counts &amp;amp;&amp;amp; complicated is better than complex.&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Notes&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;It’s about making reasonable choices for how other developers will interface with your code.&lt;/li&gt;
+      &lt;li&gt;A good interface will have good abstraction making the code more readable (follows the Zen).&lt;/li&gt;
+      &lt;li&gt;from the example, Since &lt;code class=&quot;highlighter-rouge&quot;&gt;S3&lt;/code&gt; not a special case of &lt;code class=&quot;highlighter-rouge&quot;&gt;FTP&lt;/code&gt;. We create a &lt;code class=&quot;highlighter-rouge&quot;&gt;FileTransferCLient&lt;/code&gt; abstract class (it’s closest thing to interface in python) with method &lt;code class=&quot;highlighter-rouge&quot;&gt;download&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;upload&lt;/code&gt;, since that &lt;code class=&quot;highlighter-rouge&quot;&gt;S3&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;FTP&lt;/code&gt; have in common, the file transfer protocol.  Similarly we can have &lt;code class=&quot;highlighter-rouge&quot;&gt;BulkFileTransferClient&lt;/code&gt; abstract class. So, any functions can be generic by operating on &lt;code class=&quot;highlighter-rouge&quot;&gt;FileTransferClient&lt;/code&gt; instead of coulping with specific client like &lt;code class=&quot;highlighter-rouge&quot;&gt;FPTClient&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;S3Client&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Example code:
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  from abc import ABC
+  def class FileTransferClient(ABC):
+def upload(self, file:bytes):
+  pass
+
+def download(self, target:str) -&amp;gt; bytes:
+  pass
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><summary type="html">Here is the original blog</summary></entry><entry><title type="html">A Summary of “Molecule of More”</title><link href="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html" rel="alternate" type="text/html" title="A Summary of “Molecule of More”" /><published>2020-05-16T00:00:00-05:00</published><updated>2020-05-16T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes</id><content type="html" xml:base="https://10zinten.github.io/blog/notes/summary/2020/05/16/molecule-of-more-notes.html">&lt;p&gt;Check out the original &lt;a href=&quot;https://www.amazon.com/Molecule-More-Chemical-Creativity_and-Determine/dp/1946885118&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
