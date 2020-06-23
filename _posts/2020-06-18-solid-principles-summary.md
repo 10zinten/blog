@@ -57,7 +57,8 @@ Here is the original [blog](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-de
     - Example code:
     ```
     from abc import ABC
-    def class FileTransferClient(ABC):
+    
+    class FileTransferClient(ABC):
       def upload(self, file:bytes):
         pass
 
