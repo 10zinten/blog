@@ -242,17 +242,18 @@ window.onload = wrap_img;
       <li>A good interface will have good abstraction making the code more readable (follows the Zen).</li>
       <li>from the example, Since <code class="highlighter-rouge">S3</code> not a special case of <code class="highlighter-rouge">FTP</code>. We create a <code class="highlighter-rouge">FileTransferCLient</code> abstract class (it’s closest thing to interface in python) with method <code class="highlighter-rouge">download</code> and <code class="highlighter-rouge">upload</code>, since that <code class="highlighter-rouge">S3</code> and <code class="highlighter-rouge">FTP</code> have in common, the file transfer protocol.  Similarly we can have <code class="highlighter-rouge">BulkFileTransferClient</code> abstract class. So, any functions can be generic by operating on <code class="highlighter-rouge">FileTransferClient</code> instead of coulping with specific client like <code class="highlighter-rouge">FPTClient</code> or <code class="highlighter-rouge">S3Client</code>.</li>
       <li>Example code:
-        <div class="highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  from abc import ABC
-  def class FileTransferClient(ABC):
-def upload(self, file:bytes):
-  pass
-
-def download(self, target:str) -&gt; bytes:
-  pass
-</code></pre></div>        </div>
-      </li>
+  ```
+  from abc import ABC</li>
     </ul>
+
+    <p>class FileTransferClient(ABC):
+    def upload(self, file:bytes):
+      pass</p>
+
+    <div class="highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>def download(self, target:str) -&gt; bytes:
+  pass   ```
+</code></pre></div>    </div>
   </li>
 </ul>
 
