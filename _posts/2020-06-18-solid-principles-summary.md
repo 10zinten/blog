@@ -71,6 +71,7 @@ Here is the original [blog](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-de
 - **Relevant Zen:** *Explicit is Better than Implicit*
 - **Notes**:
     - **DIP** ties all principles together. **SOLID** principles was all about getting to a place where we are no longer dependent on a detail.
+    - Dependency should be on abstractions not concretization.
     - Our high-level modules no longer need to depend on a low-level module like `FTPCleint`, `SFTPClient`, or `S3Clent`, instead, they depend on abstraction `FileTransferClient`.
     - Our abstraction `FileTransferClient` is not dependent on protocol specific details and instead, those details depend on how they will be used through the abstraction (i.e. files can be uploaded or downloaded)
     - We can now write code around our business rules without tying them to a specific implementation.
