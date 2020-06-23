@@ -55,16 +55,14 @@ Here is the original [blog](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-de
     - A good interface will have good abstraction making the code more readable (follows the Zen).
     - from the example, Since `S3` not a special case of `FTP`. We create a `FileTransferCLient` abstract class (it's closest thing to interface in python) with method `download` and `upload`, since that `S3` and `FTP` have in common, the file transfer protocol.  Similarly we can have `BulkFileTransferClient` abstract class. So, any functions can be generic by operating on `FileTransferClient` instead of coulping with specific client like `FPTClient` or `S3Client`.
     - Example code:
-    ```
-    from abc import ABC
-    
-    class FileTransferClient(ABC):
-      def upload(self, file:bytes):
-        pass
+        ```
+        class FileTransferClient(ABC):
+          def upload(self, file:bytes):
+            pass
 
-      def download(self, target:str) -> bytes:
-        pass
-    ```
+          def download(self, target:str) -> bytes:
+            pass
+        ```
 
 ## Dependency Inversion Principle (DIP)
 - **Definition:** *High-level modules should not depend on low-level modules. They should depend on abstractions and abstractions should not depend on details, rather details should depend on abstractions.*
