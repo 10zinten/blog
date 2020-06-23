@@ -40,7 +40,7 @@ Here is the original [blog](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-de
     - In terms of classes, changing methods signatures is the **Change** and adding new method is the **Extension**.
     - From the example, adding `upload_bulk` and `download_bulk` to the `FTPClient` extends the class, satisfying the **OCP**. This also satisfies **SRP** (only one reason to change the `FTPClient`, i.e., support for bulk download and upload). Although we can create `BulkFTPCLient` inheriting from `FTPClient` but for that we have to change the singnature for `download` and `upload` method as it would return list of bytes instead of just bytes therefore voilating the **OCP** as well as **LSP**.
     
-## Liskov's Substituitability Principle (LSP)- 
+## Liskov's Substituitability Principle (LSP)
 - **Definition:** *If S is a subtype of T, then objects of type T may be replaced with objects of Type S.*
 - **Relevant Zen:** *Special cases aren’t special enough to break the rules.*
 - **Notes**:
