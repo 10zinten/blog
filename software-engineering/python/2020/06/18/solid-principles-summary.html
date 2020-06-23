@@ -136,9 +136,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#dependency-inversion-principle-dip">Dependency Inversion Principle (DIP)</a></li>
 </ul>
 </li>
-</ul><p>Here is the original <a href="https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i">blog</a></p>
-
-<h1 id="what-is-solid-design">
+<li class="toc-entry toc-h1"><a href="#refrences">Refrences</a></li>
+</ul><h1 id="what-is-solid-design">
 <a class="anchor" href="#what-is-solid-design" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is SOLID Design</h1>
 <ul>
   <li>SOILD design comes from paper <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjHkI-g5YrqAhUczjgGHaBSChAQFjACegQIARAB&amp;url=https%3A%2F%2Ffi.ort.edu.uy%2Finnovaportal%2Ffile%2F2032%2F1%2Fdesign_principles.pdf&amp;usg=AOvVaw1i8O0yvzDSdHlwinUGJxSy">Design Principles and Design Patterns</a> by <a href="https://en.wikipedia.org/wiki/Robert_C._Martin">Robert C. Martin</a>
@@ -242,13 +241,13 @@ window.onload = wrap_img;
       <li>A good interface will have good abstraction making the code more readable (follows the Zen).</li>
       <li>from the example, Since <code class="highlighter-rouge">S3</code> not a special case of <code class="highlighter-rouge">FTP</code>. We create a <code class="highlighter-rouge">FileTransferCLient</code> abstract class (it’s closest thing to interface in python) with method <code class="highlighter-rouge">download</code> and <code class="highlighter-rouge">upload</code>, since that <code class="highlighter-rouge">S3</code> and <code class="highlighter-rouge">FTP</code> have in common, the file transfer protocol.  Similarly we can have <code class="highlighter-rouge">BulkFileTransferClient</code> abstract class. So, any functions can be generic by operating on <code class="highlighter-rouge">FileTransferClient</code> instead of coulping with specific client like <code class="highlighter-rouge">FPTClient</code> or <code class="highlighter-rouge">S3Client</code>.</li>
       <li>Example code:
-        <div class="highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  class FileTransferClient(ABC):
-    def upload(self, file:bytes):
-      pass
+        <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="k">class</span> <span class="nc">FileTransferClient</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">file</span><span class="p">:</span><span class="nb">bytes</span><span class="p">):</span>
+      <span class="k">pass</span>
 
-    def download(self, target:str) -&gt; bytes:
-      pass
+    <span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+      <span class="k">pass</span>
 </code></pre></div>        </div>
       </li>
     </ul>
@@ -274,24 +273,29 @@ window.onload = wrap_img;
       <li>Our abstraction <code class="highlighter-rouge">FileTransferClient</code> is not dependent on protocol specific details and instead, those details depend on how they will be used through the abstraction (i.e. files can be uploaded or downloaded)</li>
       <li>We can now write code around our business rules without tying them to a specific implementation.</li>
       <li>example code:
-        <div class="highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  def exchange(client:FileTransferClient, to_upload:bytes, to_download:str) -&gt; bytes:
-      client.upload(to_upload)
-      return client.download(to_download)
+        <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="k">def</span> <span class="nf">exchange</span><span class="p">(</span><span class="n">client</span><span class="p">:</span><span class="n">FileTransferClient</span><span class="p">,</span> <span class="n">to_upload</span><span class="p">:</span><span class="nb">bytes</span><span class="p">,</span> <span class="n">to_download</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+      <span class="n">client</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="n">to_upload</span><span class="p">)</span>
+      <span class="k">return</span> <span class="n">client</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">to_download</span><span class="p">)</span>
 
-  if __name__ == '__main__':
-      ftp = FTPClient('ftp.host.com')
-      sftp = FTPSClient('sftp.host.com', 22)
-      ftps = SFTPClient('ftps.host.com', 990, 'ftps_user', 'P@ssw0rd1!')
-      s3 = S3Client('ftp.host.com')
-      scp = SCPClient('ftp.host.com')
+  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+      <span class="n">ftp</span> <span class="o">=</span> <span class="n">FTPClient</span><span class="p">(</span><span class="s">'ftp.host.com'</span><span class="p">)</span>
+      <span class="n">sftp</span> <span class="o">=</span> <span class="n">FTPSClient</span><span class="p">(</span><span class="s">'sftp.host.com'</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+      <span class="n">ftps</span> <span class="o">=</span> <span class="n">SFTPClient</span><span class="p">(</span><span class="s">'ftps.host.com'</span><span class="p">,</span> <span class="mi">990</span><span class="p">,</span> <span class="s">'ftps_user'</span><span class="p">,</span> <span class="s">'P@ssw0rd1!'</span><span class="p">)</span>
+      <span class="n">s3</span> <span class="o">=</span> <span class="n">S3Client</span><span class="p">(</span><span class="s">'ftp.host.com'</span><span class="p">)</span>
+      <span class="n">scp</span> <span class="o">=</span> <span class="n">SCPClient</span><span class="p">(</span><span class="s">'ftp.host.com'</span><span class="p">)</span>
 
-      for client in [ftp, sftp, ftps, s3, scp]:
-          exchange(client, b'Hello', 'greeting.txt')
+      <span class="k">for</span> <span class="n">client</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ftp</span><span class="p">,</span> <span class="n">sftp</span><span class="p">,</span> <span class="n">ftps</span><span class="p">,</span> <span class="n">s3</span><span class="p">,</span> <span class="n">scp</span><span class="p">]:</span>
+          <span class="n">exchange</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">b</span><span class="s">'Hello'</span><span class="p">,</span> <span class="s">'greeting.txt'</span><span class="p">)</span>
 </code></pre></div>        </div>
+        <h1 id="refrences">
+<a class="anchor" href="#refrences" aria-hidden="true"><span class="octicon octicon-link"></span></a>Refrences</h1>
       </li>
     </ul>
   </li>
+  <li><a href="https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i">A Pythonic Guide to SOLID Design Principles </a></li>
+  <li><a href="https://medium.com/@dorela/s-o-l-i-d-principles-explained-in-python-with-examples-3332520b90ff">S.O.L.I.D Principles explained in Python with examples.</a></li>
+  <li><a href="https://www.researchgate.net/publication/323935872_SOLID_Python_SOLID_principles_applied_to_a_dynamic_programming_language">SOLID Python: SOLID principles applied to a dynamic programming language</a></li>
 </ul>
 
   </div><!-- from https://github.com/utterance/utterances -->
