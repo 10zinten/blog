@@ -271,6 +271,7 @@ window.onload = wrap_img;
     <ul>
       <li>
 <strong>DIP</strong> ties all principles together. <strong>SOLID</strong> principles was all about getting to a place where we are no longer dependent on a detail.</li>
+      <li>Dependency should be on abstractions not concretization.</li>
       <li>Our high-level modules no longer need to depend on a low-level module like <code class="highlighter-rouge">FTPCleint</code>, <code class="highlighter-rouge">SFTPClient</code>, or <code class="highlighter-rouge">S3Clent</code>, instead, they depend on abstraction <code class="highlighter-rouge">FileTransferClient</code>.</li>
       <li>Our abstraction <code class="highlighter-rouge">FileTransferClient</code> is not dependent on protocol specific details and instead, those details depend on how they will be used through the abstraction (i.e. files can be uploaded or downloaded)</li>
       <li>We can now write code around our business rules without tying them to a specific implementation.</li>
