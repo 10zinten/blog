@@ -46,3 +46,21 @@ Here is the original [blog](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-de
 - **Notes**:
     - This principle says that "Any child class can replace it's parent class without breaking the functionality".
     - From the example, `SFTPClient` object can replace the `FTPClient` object, meaning the calling code won't be aware of calling `upload` and `download` methods of `SFPTClient` or `FTPClient`. Take an another case of specialized  case of FTP file transfer is FTPS (different from SFTP), creating a new class `FTPSClient` that extends `FTPClient` is the way to go.
+
+## Interface Segregation Principle (ISP)
+- **Definition:** *A client should not depend on methods it does not use.*
+- **Relevant Zen:** *Readability Counts && complicated is better than complex.*
+- **Notes**:
+    - It's about making reasonable choices for how other developers will interface with your code.
+    - A good interface will have good abstraction making the code more readable (follows the Zen).
+    - from the example, Since `S3` not a special case of `FTP`. We create a `FileTransferCLient` abstract class (it's closest thing to interface in python) with method `download` and `upload`, since that `S3` and `FTP` have in common, the file transfer protocol.  Similarly we can have `BulkFileTransferClient` abstract class. So, any functions can be generic by operating on `FileTransferClient` instead of coulping with specific client like `FPTClient` or `S3Client`.
+    - Example code:
+    ```
+    from abc import ABC
+    def class FileTransferClient(ABC):
+      def upload(self, file:bytes):
+        pass
+
+      def download(self, target:str) -> bytes:
+        pass
+    ```
