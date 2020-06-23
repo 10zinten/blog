@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-23T01:39:29-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">Summary of SOLID Principles</title><link href="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html" rel="alternate" type="text/html" title="Summary of SOLID Principles" /><published>2020-06-18T00:00:00-05:00</published><updated>2020-06-18T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary</id><content type="html" xml:base="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html">&lt;p&gt;Here is the original &lt;a href=&quot;https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i&quot;&gt;blog&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-23T01:40:04-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">Summary of SOLID Principles</title><link href="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html" rel="alternate" type="text/html" title="Summary of SOLID Principles" /><published>2020-06-18T00:00:00-05:00</published><updated>2020-06-18T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary</id><content type="html" xml:base="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html">&lt;p&gt;Here is the original &lt;a href=&quot;https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i&quot;&gt;blog&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;what-is-solid-design&quot;&gt;What is SOLID Design&lt;/h1&gt;
 &lt;ul&gt;
@@ -76,6 +76,36 @@ def upload(self, file:bytes):
 
 def download(self, target:str) -&amp;gt; bytes:
   pass
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;dependency-inversion-principle-dip&quot;&gt;Dependency Inversion Principle (DIP)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Definition:&lt;/strong&gt; &lt;em&gt;High-level modules should not depend on low-level modules. They should depend on abstractions and abstractions should not depend on details, rather details should depend on abstractions.&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Relevant Zen:&lt;/strong&gt; &lt;em&gt;Explicit is Better than Implicit&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Notes&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;DIP&lt;/strong&gt; ties all principles together. &lt;strong&gt;SOLID&lt;/strong&gt; principles was all about getting to a place where we are no longer dependent on a detail.&lt;/li&gt;
+      &lt;li&gt;Our high-level modules no longer need to depend on a low-level module like &lt;code class=&quot;highlighter-rouge&quot;&gt;FTPCleint&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;SFTPClient&lt;/code&gt;, or &lt;code class=&quot;highlighter-rouge&quot;&gt;S3Clent&lt;/code&gt;, instead, they depend on abstraction &lt;code class=&quot;highlighter-rouge&quot;&gt;FileTransferClient&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Our abstraction &lt;code class=&quot;highlighter-rouge&quot;&gt;FileTransferClient&lt;/code&gt; is not dependent on protocol specific details and instead, those details depend on how they will be used through the abstraction (i.e. files can be uploaded or downloaded)&lt;/li&gt;
+      &lt;li&gt;We can now write code around our business rules without tying them to a specific implementation.&lt;/li&gt;
+      &lt;li&gt;example code:
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  def exchange(client:FileTransferClient, to_upload:bytes, to_download:str) -&amp;gt; bytes:
+      client.upload(to_upload)
+      return client.download(to_download)
+
+  if __name__ == '__main__':
+      ftp = FTPClient('ftp.host.com')
+      sftp = FTPSClient('sftp.host.com', 22)
+      ftps = SFTPClient('ftps.host.com', 990, 'ftps_user', 'P@ssw0rd1!')
+      s3 = S3Client('ftp.host.com')
+      scp = SCPClient('ftp.host.com')
+
+      for client in [ftp, sftp, ftps, s3, scp]:
+          exchange(client, b'Hello', 'greeting.txt')
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
       &lt;/li&gt;
     &lt;/ul&gt;

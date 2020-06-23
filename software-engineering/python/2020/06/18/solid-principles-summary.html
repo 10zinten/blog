@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      4 min read
     
 </span></p>
 
@@ -133,6 +133,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#open-closed-principle-ocp">Open Closed Principle (OCP)</a></li>
 <li class="toc-entry toc-h2"><a href="#liskovs-substituitability-principle-lsp-">Liskov’s Substituitability Principle (LSP)-</a></li>
 <li class="toc-entry toc-h2"><a href="#interface-segregation-principle-isp">Interface Segregation Principle (ISP)</a></li>
+<li class="toc-entry toc-h2"><a href="#dependency-inversion-principle-dip">Dependency Inversion Principle (DIP)</a></li>
 </ul>
 </li>
 </ul><p>Here is the original <a href="https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i">blog</a></p>
@@ -249,6 +250,44 @@ def upload(self, file:bytes):
 
 def download(self, target:str) -&gt; bytes:
   pass
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="dependency-inversion-principle-dip">
+<a class="anchor" href="#dependency-inversion-principle-dip" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependency Inversion Principle (DIP)</h2>
+<ul>
+  <li>
+<strong>Definition:</strong> <em>High-level modules should not depend on low-level modules. They should depend on abstractions and abstractions should not depend on details, rather details should depend on abstractions.</em>
+</li>
+  <li>
+<strong>Relevant Zen:</strong> <em>Explicit is Better than Implicit</em>
+</li>
+  <li>
+<strong>Notes</strong>:
+    <ul>
+      <li>
+<strong>DIP</strong> ties all principles together. <strong>SOLID</strong> principles was all about getting to a place where we are no longer dependent on a detail.</li>
+      <li>Our high-level modules no longer need to depend on a low-level module like <code class="highlighter-rouge">FTPCleint</code>, <code class="highlighter-rouge">SFTPClient</code>, or <code class="highlighter-rouge">S3Clent</code>, instead, they depend on abstraction <code class="highlighter-rouge">FileTransferClient</code>.</li>
+      <li>Our abstraction <code class="highlighter-rouge">FileTransferClient</code> is not dependent on protocol specific details and instead, those details depend on how they will be used through the abstraction (i.e. files can be uploaded or downloaded)</li>
+      <li>We can now write code around our business rules without tying them to a specific implementation.</li>
+      <li>example code:
+        <div class="highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  def exchange(client:FileTransferClient, to_upload:bytes, to_download:str) -&gt; bytes:
+      client.upload(to_upload)
+      return client.download(to_download)
+
+  if __name__ == '__main__':
+      ftp = FTPClient('ftp.host.com')
+      sftp = FTPSClient('sftp.host.com', 22)
+      ftps = SFTPClient('ftps.host.com', 990, 'ftps_user', 'P@ssw0rd1!')
+      s3 = S3Client('ftp.host.com')
+      scp = SCPClient('ftp.host.com')
+
+      for client in [ftp, sftp, ftps, s3, scp]:
+          exchange(client, b'Hello', 'greeting.txt')
 </code></pre></div>        </div>
       </li>
     </ul>
