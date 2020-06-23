@@ -288,11 +288,16 @@ window.onload = wrap_img;
       <span class="k">for</span> <span class="n">client</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ftp</span><span class="p">,</span> <span class="n">sftp</span><span class="p">,</span> <span class="n">ftps</span><span class="p">,</span> <span class="n">s3</span><span class="p">,</span> <span class="n">scp</span><span class="p">]:</span>
           <span class="n">exchange</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">b</span><span class="s">'Hello'</span><span class="p">,</span> <span class="s">'greeting.txt'</span><span class="p">)</span>
 </code></pre></div>        </div>
-        <h1 id="refrences">
+        <ul>
+          <li>High-level function <code class="highlighter-rouge">exchange</code> depends on abstraction <code class="highlighter-rouge">FileTransferClient</code> and all the clients implementation depends on it too.
+            <h1 id="refrences">
 <a class="anchor" href="#refrences" aria-hidden="true"><span class="octicon octicon-link"></span></a>Refrences</h1>
+          </li>
+        </ul>
       </li>
     </ul>
   </li>
+  <li><a href="https://www.slideshare.net/DrTrucho/python-solid">Python SOLID Presentation</a></li>
   <li><a href="https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i">A Pythonic Guide to SOLID Design Principles </a></li>
   <li><a href="https://medium.com/@dorela/s-o-l-i-d-principles-explained-in-python-with-examples-3332520b90ff">S.O.L.I.D Principles explained in Python with examples.</a></li>
   <li><a href="https://www.researchgate.net/publication/323935872_SOLID_Python_SOLID_principles_applied_to_a_dynamic_programming_language">SOLID Python: SOLID principles applied to a dynamic programming language</a></li>
