@@ -143,6 +143,8 @@ window.onload = wrap_img;
 </li>
   <li>This mnemonic SOLID is attributed to <a href="https://twitter.com/mfeathers">Michael Feathers</a>
 </li>
+  <li>
+<strong>SOLID</strong> principle are intended to foster simpler, more robust and updatable code from software developers.</li>
   <li>The principles are:
     <ul>
       <li>
@@ -178,7 +180,7 @@ window.onload = wrap_img;
       <li>Think of reponsibilities as use cases.</li>
       <li>Each use case should only be handled in one place therefore creating one obvious way to do things (following the Zen) hence “one reason to change” only if use case has changed (following SRP).</li>
       <li>The code is sparse, and not dense, simple not complex, flat and not nested with SRP</li>
-      <li>From the example, the original class <code class="highlighter-rouge">FPTClient</code> has two resposibilities (handles two use cases), <code class="highlighter-rouge">FTP</code> and <code class="highlighter-rouge">SFTP</code> server, therefore two reason to change the class. Splitting the <code class="highlighter-rouge">FPTClient</code> class into 2 classes to handle echa server separately fixes issue.</li>
+      <li>From the example, the original class <code class="highlighter-rouge">FPTClient</code> has two resposibilities (handles two use cases), <code class="highlighter-rouge">FTP</code> and <code class="highlighter-rouge">SFTP</code> server, therefore two reason to change the class. Splitting the <code class="highlighter-rouge">FPTClient</code> class into 2 classes to handle each server separately fixes the issue.</li>
     </ul>
   </li>
 </ul>
@@ -197,7 +199,7 @@ window.onload = wrap_img;
     <ul>
       <li>Think of <strong>Change</strong> and <strong>Extension</strong> in term of <em>function signatures</em>.</li>
       <li>Forcing calling code to be updated is the <strong>Change</strong>, includes chaging function name, swapping the order of parameter or adding a non-default parameter.</li>
-      <li>Not forcing calling code to be updated while providing new fuctionality, includes renaming a parameter, adding a new parameter with a default value, or adding <code class="highlighter-rouge">args</code>, or <code class="highlighter-rouge">kwarg</code> (relates to Effective python, Item 23: <em>Provide Optional Behavior with Keyword Arguments</em>)</li>
+      <li>Not forcing calling code to be updated while providing new fuctionality, includes renaming a parameter, adding a new parameter with a default value, or adding <code class="highlighter-rouge">args</code>, or <code class="highlighter-rouge">kwarg</code> (relates to <a href="https://effectivepython.com/">Effective python</a>, Item 23: <em>Provide Optional Behavior with Keyword Arguments</em>)</li>
       <li>In terms of classes, changing methods signatures is the <strong>Change</strong> and adding new method is the <strong>Extension</strong>.</li>
       <li>From the example, adding <code class="highlighter-rouge">upload_bulk</code> and <code class="highlighter-rouge">download_bulk</code> to the <code class="highlighter-rouge">FTPClient</code> extends the class, satisfying the <strong>OCP</strong>. This also satisfies <strong>SRP</strong> (only one reason to change the <code class="highlighter-rouge">FTPClient</code>, i.e., support for bulk download and upload). Although we can create <code class="highlighter-rouge">BulkFTPCLient</code> inheriting from <code class="highlighter-rouge">FTPClient</code> but for that we have to change the singnature for <code class="highlighter-rouge">download</code> and <code class="highlighter-rouge">upload</code> method as it would return list of bytes instead of just bytes therefore voilating the <strong>OCP</strong> as well as <strong>LSP</strong>.</li>
     </ul>
@@ -216,8 +218,8 @@ window.onload = wrap_img;
   <li>
 <strong>Notes</strong>:
     <ul>
-      <li>This principle says that “Any child class can replace it’s parent class withour breaking functionality”.</li>
-      <li>From the example, <code class="highlighter-rouge">SFTPClient</code> object can replace the <code class="highlighter-rouge">FTPClient</code> object, meaning the calling code won’t be aware of calling <code class="highlighter-rouge">upload</code> and <code class="highlighter-rouge">download</code> methods of <code class="highlighter-rouge">SFPTClient</code> or <code class="highlighter-rouge">FTPClient</code>. Take an another case of specialized  case of FTP file transfer is FTPS (different from SFTP).</li>
+      <li>This principle says that “Any child class can replace it’s parent class without breaking the functionality”.</li>
+      <li>From the example, <code class="highlighter-rouge">SFTPClient</code> object can replace the <code class="highlighter-rouge">FTPClient</code> object, meaning the calling code won’t be aware of calling <code class="highlighter-rouge">upload</code> and <code class="highlighter-rouge">download</code> methods of <code class="highlighter-rouge">SFPTClient</code> or <code class="highlighter-rouge">FTPClient</code>. Take an another case of specialized  case of FTP file transfer is FTPS (different from SFTP), creating a new class <code class="highlighter-rouge">FTPSClient</code> that extends <code class="highlighter-rouge">FTPClient</code> is the way to go.</li>
     </ul>
   </li>
 </ul>
