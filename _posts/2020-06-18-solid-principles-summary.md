@@ -64,3 +64,28 @@ Here is the original [blog](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-de
       def download(self, target:str) -> bytes:
         pass
     ```
+
+## Dependency Inversion Principle (DIP)
+- **Definition:** *High-level modules should not depend on low-level modules. They should depend on abstractions and abstractions should not depend on details, rather details should depend on abstractions.*
+- **Relevant Zen:** *Explicit is Better than Implicit*
+- **Notes**:
+    - **DIP** ties all principles together. **SOLID** principles was all about getting to a place where we are no longer dependent on a detail.
+    - Our high-level modules no longer need to depend on a low-level module like `FTPCleint`, `SFTPClient`, or `S3Clent`, instead, they depend on abstraction `FileTransferClient`.
+    - Our abstraction `FileTransferClient` is not dependent on protocol specific details and instead, those details depend on how they will be used through the abstraction (i.e. files can be uploaded or downloaded)
+    - We can now write code around our business rules without tying them to a specific implementation.
+    - example code:
+        ```
+        def exchange(client:FileTransferClient, to_upload:bytes, to_download:str) -> bytes:
+            client.upload(to_upload)
+            return client.download(to_download)
+
+        if __name__ == '__main__':
+            ftp = FTPClient('ftp.host.com')
+            sftp = FTPSClient('sftp.host.com', 22)
+            ftps = SFTPClient('ftps.host.com', 990, 'ftps_user', 'P@ssw0rd1!')
+            s3 = S3Client('ftp.host.com')
+            scp = SCPClient('ftp.host.com')
+
+            for client in [ftp, sftp, ftps, s3, scp]:
+                exchange(client, b'Hello', 'greeting.txt')
+        ```
