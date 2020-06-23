@@ -6,7 +6,6 @@ description: This is a summary of SOLID Principles explained in blog mentioned b
 categories: [software-engineering, python]
 title: Summary of SOLID Principles
 ---
-Here is the original [blog](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i)
 
 # What is SOLID Design
 - SOILD design comes from paper [Design Principles and Design Patterns](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjHkI-g5YrqAhUczjgGHaBSChAQFjACegQIARAB&url=https%3A%2F%2Ffi.ort.edu.uy%2Finnovaportal%2Ffile%2F2032%2F1%2Fdesign_principles.pdf&usg=AOvVaw1i8O0yvzDSdHlwinUGJxSy) by [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin)
@@ -55,7 +54,7 @@ Here is the original [blog](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-de
     - A good interface will have good abstraction making the code more readable (follows the Zen).
     - from the example, Since `S3` not a special case of `FTP`. We create a `FileTransferCLient` abstract class (it's closest thing to interface in python) with method `download` and `upload`, since that `S3` and `FTP` have in common, the file transfer protocol.  Similarly we can have `BulkFileTransferClient` abstract class. So, any functions can be generic by operating on `FileTransferClient` instead of coulping with specific client like `FPTClient` or `S3Client`.
     - Example code:
-        ```
+        ```python
         class FileTransferClient(ABC):
           def upload(self, file:bytes):
             pass
@@ -74,7 +73,7 @@ Here is the original [blog](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-de
     - Our abstraction `FileTransferClient` is not dependent on protocol specific details and instead, those details depend on how they will be used through the abstraction (i.e. files can be uploaded or downloaded)
     - We can now write code around our business rules without tying them to a specific implementation.
     - example code:
-        ```
+        ```python
         def exchange(client:FileTransferClient, to_upload:bytes, to_download:str) -> bytes:
             client.upload(to_upload)
             return client.download(to_download)
@@ -89,3 +88,7 @@ Here is the original [blog](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-de
             for client in [ftp, sftp, ftps, s3, scp]:
                 exchange(client, b'Hello', 'greeting.txt')
         ```
+# Refrences
+- [A Pythonic Guide to SOLID Design Principles ](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i)
+- [S.O.L.I.D Principles explained in Python with examples.](https://medium.com/@dorela/s-o-l-i-d-principles-explained-in-python-with-examples-3332520b90ff)
+- [SOLID Python: SOLID principles applied to a dynamic programming language](https://www.researchgate.net/publication/323935872_SOLID_Python_SOLID_principles_applied_to_a_dynamic_programming_language)
