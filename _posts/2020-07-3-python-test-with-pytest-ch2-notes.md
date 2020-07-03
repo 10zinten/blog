@@ -3,9 +3,10 @@ toc: true
 layout: post
 comments: true
 description: ""
-categories: [software-engineering, python]
+categories: [software-engineering, python, pytest. testing]
 title: Python Testing with Pytest notes: CHAPTER 2 "Writing Test Functions"
 ---
+
 # Expecting Exceptions
 - Make sure a function (especially API function) raises expected exception.
 - Always raise exception from API function if desirable type is not passed.
