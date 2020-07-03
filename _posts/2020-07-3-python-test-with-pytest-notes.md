@@ -57,3 +57,33 @@ title: Python Testing with Pytest notes
   $ pytest -m "smoke" test_api_exceptions.py
   $ pytest -v -m 'smoke and not get' test_api_exceptions.py
   ```
+
+## Skipping Tests
+- Pytest has a few helpful builtin markers like `skip` and `skipif` for skipping the test
+- We can use it to skip test that we don't want to run.
+  ```python
+  @pytest.mark.skip(reason='misunderstood the API')
+  def test_unique_id_1():
+  """Calling unique_id() twice should return different numbers."""
+  id_1 = tasks.unique_id()
+  id_2 = tasks.unique_id()
+  assert id_1 != id_2
+  ```
+- Sometime we skip the test unless some conditions are met.
+  ```python
+  @pytest.mark.skipif(tasks.__version__ < '0.2.0', #expression can be any valid python expression
+                      reason='not supported until version 0.2.0')
+  def test_unique_id_1():
+  """Calling unique_id() twice should return different numbers."""
+  id_1 = tasks.unique_id()
+  id_2 = tasks.unique_id()
+  assert id_1 != id_2
+  ```
+- Include reason of skip of the test. We can see the reason for skipping of test with `-rs` flag.
+  ```python
+  $ pytest -rs test_unique_id_3.py
+  ```
+  
+  ## Marking Tests as Expecting to Fail
+  - Use `xfail` builtin marker to mark test to run but it's expected to fail.
+  - In the report, `x` is for `XFAIL`, meaning "expected to fail", `X` is for `XPASS`, meaning "expected to fail but passed" 
