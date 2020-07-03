@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-03T05:07:45-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">Python Testing with Pytest notes</title><link href="https://10zinten.github.io/blog/software-engineering/python/2020/07/03/python-test-with-pytest-notes.html" rel="alternate" type="text/html" title="Python Testing with Pytest notes" /><published>2020-07-03T00:00:00-05:00</published><updated>2020-07-03T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/software-engineering/python/2020/07/03/python-test-with-pytest-notes</id><content type="html" xml:base="https://10zinten.github.io/blog/software-engineering/python/2020/07/03/python-test-with-pytest-notes.html">&lt;h1 id=&quot;chapter-2-writing-test-functions&quot;&gt;CHAPTER 2: Writing Test Functions&lt;/h1&gt;
-&lt;h1 id=&quot;expecting-exceptions&quot;&gt;Expecting Exceptions&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-03T05:11:23-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html"></title><link href="https://10zinten.github.io/blog/2020/07/03/2020-07-3-python-test-with-pytest-ch2-notes.html" rel="alternate" type="text/html" title="" /><published>2020-07-03T05:11:23-05:00</published><updated>2020-07-03T05:11:23-05:00</updated><id>https://10zinten.github.io/blog/2020/07/03/2020-07-3-python-test-with-pytest-ch2-notes</id><content type="html" xml:base="https://10zinten.github.io/blog/2020/07/03/2020-07-3-python-test-with-pytest-ch2-notes.html">&lt;h1 id=&quot;expecting-exceptions&quot;&gt;Expecting Exceptions&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;Make sure a function (especially API function) raises expected exception.&lt;/li&gt;
   &lt;li&gt;Always raise exception from API function if desirable type is not passed.&lt;/li&gt;
@@ -28,7 +27,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;marking-test-functions&quot;&gt;Marking Test Functions&lt;/h2&gt;
+&lt;h1 id=&quot;marking-test-functions&quot;&gt;Marking Test Functions&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;pytest provides a cool mechanism to let us mark the test functions&lt;/li&gt;
   &lt;li&gt;Useful for marking subset of our tests as “smoke test”.&lt;/li&gt;
@@ -56,7 +55,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;skipping-tests&quot;&gt;Skipping Tests&lt;/h2&gt;
+&lt;h1 id=&quot;skipping-tests&quot;&gt;Skipping Tests&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;Pytest has a few helpful builtin markers like &lt;code class=&quot;highlighter-rouge&quot;&gt;skip&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;skipif&lt;/code&gt; for skipping the test&lt;/li&gt;
   &lt;li&gt;We can use it to skip test that we don’t want to run.
@@ -81,19 +80,19 @@
   &lt;li&gt;Include reason of skip of the test. We can see the reason for skipping of test with &lt;code class=&quot;highlighter-rouge&quot;&gt;-rs&lt;/code&gt; flag.
     &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pytest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_unique_id_3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;marking-tests-as-expecting-to-fail&quot;&gt;Marking Tests as Expecting to Fail&lt;/h2&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Use &lt;code class=&quot;highlighter-rouge&quot;&gt;xfail&lt;/code&gt; builtin marker to mark test to run but it’s expected to fail.&lt;/li&gt;
-      &lt;li&gt;In the report, &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; is for &lt;code class=&quot;highlighter-rouge&quot;&gt;XFAIL&lt;/code&gt;, meaning “expected to fail”, &lt;code class=&quot;highlighter-rouge&quot;&gt;X&lt;/code&gt; is for &lt;code class=&quot;highlighter-rouge&quot;&gt;XPASS&lt;/code&gt;, meaning “expected to fail but passed”&lt;/li&gt;
-      &lt;li&gt;We can configure pytest to report the tests that pass but were marked with &lt;code class=&quot;highlighter-rouge&quot;&gt;xfail&lt;/code&gt; as FAIL.  Just add this in &lt;em&gt;pytest.ini&lt;/em&gt; file:
-        &lt;div class=&quot;language-config highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[&lt;span class=&quot;n&quot;&gt;pytest&lt;/span&gt;]
-&lt;span class=&quot;n&quot;&gt;xfail_strict&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">CHAPTER 2: Writing Test Functions Expecting Exceptions Make sure a function (especially API function) raises expected exception. Always raise exception from API function if desirable type is not passed. Simple check for type of exception raised example. def test_add_raises(): &quot;&quot;&quot;add() should raise an exception with wrong type param.&quot;&quot;&quot; with pytest.raises(TypeError): tasks.add(task='not a Task object') Non Task object is added to tasks list. add method should raise TypeError exception</summary></entry><entry><title type="html">Summary of SOLID Principles</title><link href="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html" rel="alternate" type="text/html" title="Summary of SOLID Principles" /><published>2020-06-18T00:00:00-05:00</published><updated>2020-06-18T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary</id><content type="html" xml:base="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html">&lt;h1 id=&quot;what-is-solid-design&quot;&gt;What is SOLID Design&lt;/h1&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;marking-tests-as-expecting-to-fail&quot;&gt;Marking Tests as Expecting to Fail&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Use &lt;code class=&quot;highlighter-rouge&quot;&gt;xfail&lt;/code&gt; builtin marker to mark test to run but it’s expected to fail.&lt;/li&gt;
+  &lt;li&gt;In the report, &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; is for &lt;code class=&quot;highlighter-rouge&quot;&gt;XFAIL&lt;/code&gt;, meaning “expected to fail”, &lt;code class=&quot;highlighter-rouge&quot;&gt;X&lt;/code&gt; is for &lt;code class=&quot;highlighter-rouge&quot;&gt;XPASS&lt;/code&gt;, meaning “expected to fail but passed”&lt;/li&gt;
+  &lt;li&gt;We can configure pytest to report the tests that pass but were marked with &lt;code class=&quot;highlighter-rouge&quot;&gt;xfail&lt;/code&gt; as FAIL.  Just add this in &lt;em&gt;pytest.ini&lt;/em&gt; file:
+    &lt;div class=&quot;language-config highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[&lt;span class=&quot;n&quot;&gt;pytest&lt;/span&gt;]
+&lt;span class=&quot;n&quot;&gt;xfail_strict&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author></entry><entry><title type="html">Summary of SOLID Principles</title><link href="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html" rel="alternate" type="text/html" title="Summary of SOLID Principles" /><published>2020-06-18T00:00:00-05:00</published><updated>2020-06-18T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary</id><content type="html" xml:base="https://10zinten.github.io/blog/software-engineering/python/2020/06/18/solid-principles-summary.html">&lt;h1 id=&quot;what-is-solid-design&quot;&gt;What is SOLID Design&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;SOILD design comes from paper &lt;a href=&quot;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwjHkI-g5YrqAhUczjgGHaBSChAQFjACegQIARAB&amp;amp;url=https%3A%2F%2Ffi.ort.edu.uy%2Finnovaportal%2Ffile%2F2032%2F1%2Fdesign_principles.pdf&amp;amp;usg=AOvVaw1i8O0yvzDSdHlwinUGJxSy&quot;&gt;Design Principles and Design Patterns&lt;/a&gt; by &lt;a href=&quot;https://en.wikipedia.org/wiki/Robert_C._Martin&quot;&gt;Robert C. Martin&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;This mnemonic SOLID is attributed to &lt;a href=&quot;https://twitter.com/mfeathers&quot;&gt;Michael Feathers&lt;/a&gt;&lt;/li&gt;

@@ -1,0 +1,95 @@
+<h1 id="expecting-exceptions">Expecting Exceptions</h1>
+<ul>
+  <li>Make sure a function (especially API function) raises expected exception.</li>
+  <li>Always raise exception from API function if desirable type is not passed.</li>
+  <li>Simple check for type of exception raised example.
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_add_raises</span><span class="p">():</span>
+    <span class="s">"""add() should raise an exception with wrong type param."""</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="nb">TypeError</span><span class="p">):</span>
+        <span class="n">tasks</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="s">'not a Task object'</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <ul>
+      <li>Non <code class="highlighter-rouge">Task</code> object is added to tasks list. <code class="highlighter-rouge">add</code> method should raise <code class="highlighter-rouge">TypeError</code> exception</li>
+    </ul>
+  </li>
+  <li>Sometime we may need to check for exception parameters.</li>
+  <li>This let us look at exception more closely.
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_start_tasks_db_raises</span><span class="p">():</span>
+  <span class="s">"""Make sure unsupported db raises an exception."""</span>
+  <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="nb">ValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+      <span class="n">tasks</span><span class="o">.</span><span class="n">start_tasks_db</span><span class="p">(</span><span class="s">'some/great/path'</span><span class="p">,</span> <span class="s">'mysql'</span><span class="p">)</span>
+  <span class="n">exception_msg</span> <span class="o">=</span> <span class="n">excinfo</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="k">assert</span> <span class="n">exception_msg</span> <span class="o">==</span> <span class="s">"db_type must be a 'tiny' or 'mongo'"</span>
+</code></pre></div>    </div>
+    <ul>
+      <li>Not only <em>db_type</em> should be <code class="highlighter-rouge">str</code> (passed <code class="highlighter-rouge">mysql</code> <em>db_type</em>), it should be either <code class="highlighter-rouge">tiny</code> or <code class="highlighter-rouge">mongo</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="marking-test-functions">Marking Test Functions</h1>
+<ul>
+  <li>pytest provides a cool mechanism to let us mark the test functions</li>
+  <li>Useful for marking subset of our tests as “smoke test”.</li>
+  <li><strong>Smoke test</strong> let us get a sense for whether or not there is some major break in the system. It’s by convention not all-inclusive of tests.</li>
+  <li><strong>Smoke test</strong> let us get a sense for whether or not there is some major break in the system. It’s by convention not all-inclusive of tests.
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">smoke</span>
+<span class="k">def</span> <span class="nf">test_list_raises</span><span class="p">():</span>
+    <span class="s">"""list() should raise an exception with wrong type param."""</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="nb">TypeError</span><span class="p">):</span>
+        <span class="n">tasks</span><span class="o">.</span><span class="n">list_tasks</span><span class="p">(</span><span class="n">owner</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+
+
+<span class="o">@</span><span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">get</span>
+<span class="o">@</span><span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">smoke</span>
+<span class="k">def</span> <span class="nf">test_get_raises</span><span class="p">():</span>
+    <span class="s">"""get() should raise an exception with wrong type param."""</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="nb">TypeError</span><span class="p">):</span>
+        <span class="n">tasks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="s">'123'</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Run the smoke test with <code class="highlighter-rouge">-m</code> option
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pytest <span class="nt">-m</span> <span class="s2">"smoke"</span> test_api_exceptions.py
+<span class="nv">$ </span>pytest <span class="nt">-v</span> <span class="nt">-m</span> <span class="s1">'smoke and not get'</span> test_api_exceptions.py
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="skipping-tests">Skipping Tests</h1>
+<ul>
+  <li>Pytest has a few helpful builtin markers like <code class="highlighter-rouge">skip</code> and <code class="highlighter-rouge">skipif</code> for skipping the test</li>
+  <li>We can use it to skip test that we don’t want to run.
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="n">reason</span><span class="o">=</span><span class="s">'misunderstood the API'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_unique_id_1</span><span class="p">():</span>
+<span class="s">"""Calling unique_id() twice should return different numbers."""</span>
+<span class="n">id_1</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
+<span class="n">id_2</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">id_1</span> <span class="o">!=</span> <span class="n">id_2</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Sometime we skip the test unless some conditions are met.
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skipif</span><span class="p">(</span><span class="n">tasks</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&lt;</span> <span class="s">'0.2.0'</span><span class="p">,</span> <span class="c1">#expression can be any valid python expression
+</span>                    <span class="n">reason</span><span class="o">=</span><span class="s">'not supported until version 0.2.0'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_unique_id_1</span><span class="p">():</span>
+<span class="s">"""Calling unique_id() twice should return different numbers."""</span>
+<span class="n">id_1</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
+<span class="n">id_2</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">id_1</span> <span class="o">!=</span> <span class="n">id_2</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Include reason of skip of the test. We can see the reason for skipping of test with <code class="highlighter-rouge">-rs</code> flag.
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">pytest</span> <span class="o">-</span><span class="n">rs</span> <span class="n">test_unique_id_3</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="marking-tests-as-expecting-to-fail">Marking Tests as Expecting to Fail</h1>
+<ul>
+  <li>Use <code class="highlighter-rouge">xfail</code> builtin marker to mark test to run but it’s expected to fail.</li>
+  <li>In the report, <code class="highlighter-rouge">x</code> is for <code class="highlighter-rouge">XFAIL</code>, meaning “expected to fail”, <code class="highlighter-rouge">X</code> is for <code class="highlighter-rouge">XPASS</code>, meaning “expected to fail but passed”</li>
+  <li>We can configure pytest to report the tests that pass but were marked with <code class="highlighter-rouge">xfail</code> as FAIL.  Just add this in <em>pytest.ini</em> file:
+    <div class="language-config highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[<span class="n">pytest</span>]
+<span class="n">xfail_strict</span>=<span class="n">true</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
