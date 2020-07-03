@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -131,6 +131,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#expecting-exceptions">Expecting Exceptions</a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#marking-test-functions">Marking Test Functions</a></li>
+<li class="toc-entry toc-h2"><a href="#skipping-tests">Skipping Tests</a></li>
+<li class="toc-entry toc-h2"><a href="#marking-tests-as-expecting-to-fail">Marking Tests as Expecting to Fail</a></li>
 </ul>
 </li>
 </ul><h1 id="chapter-2-writing-test-functions">
@@ -197,6 +199,45 @@ window.onload = wrap_img;
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pytest <span class="nt">-m</span> <span class="s2">"smoke"</span> test_api_exceptions.py
 <span class="nv">$ </span>pytest <span class="nt">-v</span> <span class="nt">-m</span> <span class="s1">'smoke and not get'</span> test_api_exceptions.py
 </code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="skipping-tests">
+<a class="anchor" href="#skipping-tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Skipping Tests</h2>
+<ul>
+  <li>Pytest has a few helpful builtin markers like <code class="highlighter-rouge">skip</code> and <code class="highlighter-rouge">skipif</code> for skipping the test</li>
+  <li>We can use it to skip test that we don’t want to run.
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="n">reason</span><span class="o">=</span><span class="s">'misunderstood the API'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_unique_id_1</span><span class="p">():</span>
+<span class="s">"""Calling unique_id() twice should return different numbers."""</span>
+<span class="n">id_1</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
+<span class="n">id_2</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">id_1</span> <span class="o">!=</span> <span class="n">id_2</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Sometime we skip the test unless some conditions are met.
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skipif</span><span class="p">(</span><span class="n">tasks</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&lt;</span> <span class="s">'0.2.0'</span><span class="p">,</span> <span class="c1">#expression can be any valid python expression
+</span>                    <span class="n">reason</span><span class="o">=</span><span class="s">'not supported until version 0.2.0'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_unique_id_1</span><span class="p">():</span>
+<span class="s">"""Calling unique_id() twice should return different numbers."""</span>
+<span class="n">id_1</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
+<span class="n">id_2</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">id_1</span> <span class="o">!=</span> <span class="n">id_2</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Include reason of skip of the test. We can see the reason for skipping of test with <code class="highlighter-rouge">-rs</code> flag.
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">pytest</span> <span class="o">-</span><span class="n">rs</span> <span class="n">test_unique_id_3</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div>    </div>
+
+    <h2 id="marking-tests-as-expecting-to-fail">
+<a class="anchor" href="#marking-tests-as-expecting-to-fail" aria-hidden="true"><span class="octicon octicon-link"></span></a>Marking Tests as Expecting to Fail</h2>
+    <ul>
+      <li>Use <code class="highlighter-rouge">xfail</code> builtin marker to mark test to run but it’s expected to fail.</li>
+      <li>In the report, <code class="highlighter-rouge">x</code> is for <code class="highlighter-rouge">XFAIL</code>, meaning “expected to fail”, <code class="highlighter-rouge">X</code> is for <code class="highlighter-rouge">XPASS</code>, meaning “expected to fail but passed”</li>
+    </ul>
   </li>
 </ul>
 
