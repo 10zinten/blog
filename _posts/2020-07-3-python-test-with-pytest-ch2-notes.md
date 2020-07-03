@@ -2,12 +2,10 @@
 toc: true
 layout: post
 comments: true
-description: Important notes from Python Testing with Pytest book
+description: ""
 categories: [software-engineering, python]
-title: Python Testing with Pytest notes
+title: Python Testing with Pytest notes: CHAPTER 2 "Writing Test Functions"
 ---
-
-# CHAPTER 2: Writing Test Functions
 # Expecting Exceptions
 - Make sure a function (especially API function) raises expected exception.
 - Always raise exception from API function if desirable type is not passed.
@@ -32,7 +30,7 @@ title: Python Testing with Pytest notes
   ```
   - Not only *db_type* should be `str` (passed `mysql` *db_type*), it should be either `tiny` or `mongo`.
 
-## Marking Test Functions
+# Marking Test Functions
 - pytest provides a cool mechanism to let us mark the test functions
 - Useful for marking subset of our tests as "smoke test".
 - **Smoke test** let us get a sense for whether or not there is some major break in the system. It's by convention not all-inclusive of tests.
@@ -58,7 +56,7 @@ title: Python Testing with Pytest notes
   $ pytest -v -m 'smoke and not get' test_api_exceptions.py
   ```
 
-## Skipping Tests
+# Skipping Tests
 - Pytest has a few helpful builtin markers like `skip` and `skipif` for skipping the test
 - We can use it to skip test that we don't want to run.
   ```python
@@ -84,10 +82,10 @@ title: Python Testing with Pytest notes
   $ pytest -rs test_unique_id_3.py
   ```
   
-  ## Marking Tests as Expecting to Fail
-  - Use `xfail` builtin marker to mark test to run but it's expected to fail.
-  - In the report, `x` is for `XFAIL`, meaning "expected to fail", `X` is for `XPASS`, meaning "expected to fail but passed" 
-  - We can configure pytest to report the tests that pass but were marked with `xfail` as FAIL.  Just add this in *pytest.ini* file:
+# Marking Tests as Expecting to Fail
+- Use `xfail` builtin marker to mark test to run but it's expected to fail.
+- In the report, `x` is for `XFAIL`, meaning "expected to fail", `X` is for `XPASS`, meaning "expected to fail but passed" 
+- We can configure pytest to report the tests that pass but were marked with `xfail` as FAIL.  Just add this in *pytest.ini* file:
   ```config
   [pytest]
   xfail_strict=true
