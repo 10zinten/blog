@@ -237,6 +237,12 @@ window.onload = wrap_img;
     <ul>
       <li>Use <code class="highlighter-rouge">xfail</code> builtin marker to mark test to run but it’s expected to fail.</li>
       <li>In the report, <code class="highlighter-rouge">x</code> is for <code class="highlighter-rouge">XFAIL</code>, meaning “expected to fail”, <code class="highlighter-rouge">X</code> is for <code class="highlighter-rouge">XPASS</code>, meaning “expected to fail but passed”</li>
+      <li>We can configure pytest to report the tests that pass but were marked with <code class="highlighter-rouge">xfail</code> as FAIL.  Just add this in <em>pytest.ini</em> file:
+        <div class="language-config highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>[<span class="n">pytest</span>]
+<span class="n">xfail_strict</span>=<span class="n">true</span>
+</code></pre></div>        </div>
+      </li>
     </ul>
   </li>
 </ul>
