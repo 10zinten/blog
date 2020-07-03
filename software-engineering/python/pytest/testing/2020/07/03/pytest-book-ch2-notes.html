@@ -137,6 +137,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#marking-test-functions">Marking Test Functions</a></li>
 <li class="toc-entry toc-h1"><a href="#skipping-tests">Skipping Tests</a></li>
 <li class="toc-entry toc-h1"><a href="#marking-tests-as-expecting-to-fail">Marking Tests as Expecting to Fail</a></li>
+<li class="toc-entry toc-h1"><a href="#parametrized-testing">Parametrized Testing</a></li>
 </ul><h1 id="expecting-exceptions">
 <a class="anchor" href="#expecting-exceptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Expecting Exceptions</h1>
 <ul>
@@ -243,6 +244,25 @@ window.onload = wrap_img;
     <div class="language-config highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>[<span class="n">pytest</span>]
 <span class="n">xfail_strict</span>=<span class="n">true</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="parametrized-testing">
+<a class="anchor" href="#parametrized-testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parametrized Testing</h1>
+<ul>
+  <li>It is a way to test a test function with multiple sets of test data (corner cases).
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s">'task'</span><span class="p">,</span>
+                          <span class="p">[</span><span class="n">Task</span><span class="p">(</span><span class="s">'sleep'</span><span class="p">,</span> <span class="n">done</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+                          <span class="n">Task</span><span class="p">(</span><span class="s">'wake'</span><span class="p">,</span> <span class="s">'brian'</span><span class="p">),</span>
+                          <span class="n">Task</span><span class="p">(</span><span class="s">'breathe'</span><span class="p">,</span> <span class="s">'BRIAN'</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+                          <span class="n">Task</span><span class="p">(</span><span class="s">'exercise'</span><span class="p">,</span> <span class="s">'BrIaN'</span><span class="p">,</span> <span class="bp">False</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">test_add_2</span><span class="p">(</span><span class="n">task</span><span class="p">):</span>
+  <span class="s">"""Demonstrate parametrize with one parameter."""</span>
+  <span class="n">task_id</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+  <span class="n">t_from_db</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">task_id</span><span class="p">)</span>
+  <span class="k">assert</span> <span class="n">equivalent</span><span class="p">(</span><span class="n">t_from_db</span><span class="p">,</span> <span class="n">task</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
 </ul>
