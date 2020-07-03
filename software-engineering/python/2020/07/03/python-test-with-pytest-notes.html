@@ -127,19 +127,77 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#chapter-2-writing-test-functions">CHAPTER 2: Writing Test Functions</a>
+<li class="toc-entry toc-h1"><a href="#chapter-2-writing-test-functions">CHAPTER 2: Writing Test Functions</a></li>
+<li class="toc-entry toc-h1"><a href="#expecting-exceptions">Expecting Exceptions</a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#expecting-exceptions">Expecting Exceptions</a></li>
+<li class="toc-entry toc-h2"><a href="#marking-test-functions">Marking Test Functions</a></li>
 </ul>
 </li>
 </ul><h1 id="chapter-2-writing-test-functions">
 <a class="anchor" href="#chapter-2-writing-test-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>CHAPTER 2: Writing Test Functions</h1>
-<h2 id="expecting-exceptions">
-<a class="anchor" href="#expecting-exceptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Expecting Exceptions</h2>
+<h1 id="expecting-exceptions">
+<a class="anchor" href="#expecting-exceptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Expecting Exceptions</h1>
 <ul>
-  <li>Always raise exception in API function if type pass is wrong.</li>
-  <li>Test for whether API calls raise excepted exception.</li>
-  <li>Check <a href="https://github.com/10zinten/til/blob/master/pytest/02_expecting-exceptions.md">here</a> for the example</li>
+  <li>Make sure a function (especially API function) raises expected exception.</li>
+  <li>Always raise exception from API function if desirable type is not passed.</li>
+  <li>Simple check for type of exception raised example.
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_add_raises</span><span class="p">():</span>
+    <span class="s">"""add() should raise an exception with wrong type param."""</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="nb">TypeError</span><span class="p">):</span>
+        <span class="n">tasks</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="s">'not a Task object'</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <ul>
+      <li>Non <code class="highlighter-rouge">Task</code> object is added to tasks list. <code class="highlighter-rouge">add</code> method should raise <code class="highlighter-rouge">TypeError</code> exception</li>
+    </ul>
+  </li>
+  <li>Sometime we may need to check for exception parameters.</li>
+  <li>This let us look at exception more closely.
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_start_tasks_db_raises</span><span class="p">():</span>
+  <span class="s">"""Make sure unsupported db raises an exception."""</span>
+  <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="nb">ValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+      <span class="n">tasks</span><span class="o">.</span><span class="n">start_tasks_db</span><span class="p">(</span><span class="s">'some/great/path'</span><span class="p">,</span> <span class="s">'mysql'</span><span class="p">)</span>
+  <span class="n">exception_msg</span> <span class="o">=</span> <span class="n">excinfo</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="k">assert</span> <span class="n">exception_msg</span> <span class="o">==</span> <span class="s">"db_type must be a 'tiny' or 'mongo'"</span>
+</code></pre></div>    </div>
+    <ul>
+      <li>Not only <em>db_type</em> should be <code class="highlighter-rouge">str</code> (passed <code class="highlighter-rouge">mysql</code> <em>db_type</em>), it should be either <code class="highlighter-rouge">tiny</code> or <code class="highlighter-rouge">mongo</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="marking-test-functions">
+<a class="anchor" href="#marking-test-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Marking Test Functions</h2>
+<ul>
+  <li>pytest provides a cool mechanism to let us mark the test functions</li>
+  <li>Useful for marking subset of our tests as “smoke test”.</li>
+  <li>
+<strong>Smoke test</strong> let us get a sense for whether or not there is some major break in the system. It’s by convention not all-inclusive of tests.</li>
+  <li>
+<strong>Smoke test</strong> let us get a sense for whether or not there is some major break in the system. It’s by convention not all-inclusive of tests.
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">smoke</span>
+<span class="k">def</span> <span class="nf">test_list_raises</span><span class="p">():</span>
+    <span class="s">"""list() should raise an exception with wrong type param."""</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="nb">TypeError</span><span class="p">):</span>
+        <span class="n">tasks</span><span class="o">.</span><span class="n">list_tasks</span><span class="p">(</span><span class="n">owner</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+
+
+<span class="o">@</span><span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">get</span>
+<span class="o">@</span><span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">smoke</span>
+<span class="k">def</span> <span class="nf">test_get_raises</span><span class="p">():</span>
+    <span class="s">"""get() should raise an exception with wrong type param."""</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="nb">TypeError</span><span class="p">):</span>
+        <span class="n">tasks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="s">'123'</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Run the smoke test with <code class="highlighter-rouge">-m</code> option
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pytest <span class="nt">-m</span> <span class="s2">"smoke"</span> test_api_exceptions.py
+<span class="nv">$ </span>pytest <span class="nt">-v</span> <span class="nt">-m</span> <span class="s1">'smoke and not get'</span> test_api_exceptions.py
+</code></pre></div>    </div>
+  </li>
 </ul>
 
   </div><!-- from https://github.com/utterance/utterances -->
