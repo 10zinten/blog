@@ -91,3 +91,18 @@ title: Pytest Book CHAPTER 2, Writing Test Functions
   [pytest]
   xfail_strict=true
   ```
+
+# Parametrized Testing
+- It is a way to test a test function with multiple sets of test data (corner cases).
+  ```python
+  @pytest.mark.parametrize('task',
+                            [Task('sleep', done=True),
+                            Task('wake', 'brian'),
+                            Task('breathe', 'BRIAN', True),
+                            Task('exercise', 'BrIaN', False)])
+  def test_add_2(task):
+    """Demonstrate parametrize with one parameter."""
+    task_id = tasks.add(task)
+    t_from_db = tasks.get(task_id)
+    assert equivalent(t_from_db, task)
+  ```
