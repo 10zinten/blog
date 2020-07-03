@@ -61,20 +61,20 @@
   <li>We can use it to skip test that we don’t want to run.
     <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="n">reason</span><span class="o">=</span><span class="s">'misunderstood the API'</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">test_unique_id_1</span><span class="p">():</span>
-<span class="s">"""Calling unique_id() twice should return different numbers."""</span>
-<span class="n">id_1</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
-<span class="n">id_2</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
-<span class="k">assert</span> <span class="n">id_1</span> <span class="o">!=</span> <span class="n">id_2</span>
+  <span class="s">"""Calling unique_id() twice should return different numbers."""</span>
+  <span class="n">id_1</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
+  <span class="n">id_2</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
+  <span class="k">assert</span> <span class="n">id_1</span> <span class="o">!=</span> <span class="n">id_2</span>
 </code></pre></div>    </div>
   </li>
   <li>Sometime we skip the test unless some conditions are met.
     <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skipif</span><span class="p">(</span><span class="n">tasks</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&lt;</span> <span class="s">'0.2.0'</span><span class="p">,</span> <span class="c1">#expression can be any valid python expression
 </span>                    <span class="n">reason</span><span class="o">=</span><span class="s">'not supported until version 0.2.0'</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">test_unique_id_1</span><span class="p">():</span>
-<span class="s">"""Calling unique_id() twice should return different numbers."""</span>
-<span class="n">id_1</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
-<span class="n">id_2</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
-<span class="k">assert</span> <span class="n">id_1</span> <span class="o">!=</span> <span class="n">id_2</span>
+  <span class="s">"""Calling unique_id() twice should return different numbers."""</span>
+  <span class="n">id_1</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
+  <span class="n">id_2</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()</span>
+  <span class="k">assert</span> <span class="n">id_1</span> <span class="o">!=</span> <span class="n">id_2</span>
 </code></pre></div>    </div>
   </li>
   <li>Include reason of skip of the test. We can see the reason for skipping of test with <code class="highlighter-rouge">-rs</code> flag.
