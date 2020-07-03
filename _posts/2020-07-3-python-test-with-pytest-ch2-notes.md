@@ -63,20 +63,20 @@ title: Python Testing with Pytest notes: CHAPTER 2 "Writing Test Functions"
   ```python
   @pytest.mark.skip(reason='misunderstood the API')
   def test_unique_id_1():
-  """Calling unique_id() twice should return different numbers."""
-  id_1 = tasks.unique_id()
-  id_2 = tasks.unique_id()
-  assert id_1 != id_2
+    """Calling unique_id() twice should return different numbers."""
+    id_1 = tasks.unique_id()
+    id_2 = tasks.unique_id()
+    assert id_1 != id_2
   ```
 - Sometime we skip the test unless some conditions are met.
   ```python
   @pytest.mark.skipif(tasks.__version__ < '0.2.0', #expression can be any valid python expression
                       reason='not supported until version 0.2.0')
   def test_unique_id_1():
-  """Calling unique_id() twice should return different numbers."""
-  id_1 = tasks.unique_id()
-  id_2 = tasks.unique_id()
-  assert id_1 != id_2
+    """Calling unique_id() twice should return different numbers."""
+    id_1 = tasks.unique_id()
+    id_2 = tasks.unique_id()
+    assert id_1 != id_2
   ```
 - Include reason of skip of the test. We can see the reason for skipping of test with `-rs` flag.
   ```python
