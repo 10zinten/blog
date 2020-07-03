@@ -55,4 +55,5 @@ title: Python Testing with Pytest notes
 - Run the smoke test with `-m` option
   ```bash
   $ pytest -m "smoke" test_api_exceptions.py
+  $ pytest -v -m 'smoke and not get' test_api_exceptions.py
   ```
