@@ -87,3 +87,8 @@ title: Python Testing with Pytest notes
   ## Marking Tests as Expecting to Fail
   - Use `xfail` builtin marker to mark test to run but it's expected to fail.
   - In the report, `x` is for `XFAIL`, meaning "expected to fail", `X` is for `XPASS`, meaning "expected to fail but passed" 
+  - We can configure pytest to report the tests that pass but were marked with `xfail` as FAIL.  Just add this in *pytest.ini* file:
+  ```config
+  [pytest]
+  xfail_strict=true
+  ```
