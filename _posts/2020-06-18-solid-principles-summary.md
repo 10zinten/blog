@@ -89,7 +89,8 @@ title: Summary of SOLID Principles
                 exchange(client, b'Hello', 'greeting.txt')
         ```
         - High-level function `exchange` depends on abstraction `FileTransferClient` and all the clients implementation depends on it too.
-# Refrences
+
+# References
 - [Python SOLID Presentation](https://www.slideshare.net/DrTrucho/python-solid)
 - [A Pythonic Guide to SOLID Design Principles ](https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i)
 - [S.O.L.I.D Principles explained in Python with examples.](https://medium.com/@dorela/s-o-l-i-d-principles-explained-in-python-with-examples-3332520b90ff)
