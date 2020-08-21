@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-03T06:14:03-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">Pytest Book CHAPTER 2, Writing Test Functions</title><link href="https://10zinten.github.io/blog/software-engineering/python/pytest/testing/2020/07/03/pytest-book-ch2-notes.html" rel="alternate" type="text/html" title="Pytest Book CHAPTER 2, Writing Test Functions" /><published>2020-07-03T00:00:00-05:00</published><updated>2020-07-03T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/software-engineering/python/pytest/testing/2020/07/03/pytest-book-ch2-notes</id><content type="html" xml:base="https://10zinten.github.io/blog/software-engineering/python/pytest/testing/2020/07/03/pytest-book-ch2-notes.html">&lt;h1 id=&quot;expecting-exceptions&quot;&gt;Expecting Exceptions&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-21T05:02:32-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">Pytest Book CHAPTER 2, Writing Test Functions</title><link href="https://10zinten.github.io/blog/software-engineering/python/pytest/testing/2020/07/03/pytest-book-ch2-notes.html" rel="alternate" type="text/html" title="Pytest Book CHAPTER 2, Writing Test Functions" /><published>2020-07-03T00:00:00-05:00</published><updated>2020-07-03T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/software-engineering/python/pytest/testing/2020/07/03/pytest-book-ch2-notes</id><content type="html" xml:base="https://10zinten.github.io/blog/software-engineering/python/pytest/testing/2020/07/03/pytest-book-ch2-notes.html">&lt;h1 id=&quot;expecting-exceptions&quot;&gt;Expecting Exceptions&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;Make sure a function (especially API function) raises expected exception.&lt;/li&gt;
   &lt;li&gt;Always raise exception from API function if desirable type is not passed.&lt;/li&gt;
@@ -217,13 +217,15 @@
           &lt;span class=&quot;n&quot;&gt;exchange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Hello'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'greeting.txt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
         &lt;ul&gt;
-          &lt;li&gt;High-level function &lt;code class=&quot;highlighter-rouge&quot;&gt;exchange&lt;/code&gt; depends on abstraction &lt;code class=&quot;highlighter-rouge&quot;&gt;FileTransferClient&lt;/code&gt; and all the clients implementation depends on it too.
-            &lt;h1 id=&quot;refrences&quot;&gt;Refrences&lt;/h1&gt;
-          &lt;/li&gt;
+          &lt;li&gt;High-level function &lt;code class=&quot;highlighter-rouge&quot;&gt;exchange&lt;/code&gt; depends on abstraction &lt;code class=&quot;highlighter-rouge&quot;&gt;FileTransferClient&lt;/code&gt; and all the clients implementation depends on it too.&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+&lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.slideshare.net/DrTrucho/python-solid&quot;&gt;Python SOLID Presentation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i&quot;&gt;A Pythonic Guide to SOLID Design Principles &lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://medium.com/@dorela/s-o-l-i-d-principles-explained-in-python-with-examples-3332520b90ff&quot;&gt;S.O.L.I.D Principles explained in Python with examples.&lt;/a&gt;&lt;/li&gt;
