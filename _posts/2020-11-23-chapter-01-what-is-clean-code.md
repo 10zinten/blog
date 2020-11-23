@@ -1,6 +1,8 @@
 ---
-lauout: post
+toc: false
+layout: post
 description: Summary of clean code chapter one
+categories: [software-engineering, clean-code]
 title: Summary of Clean Code Chapter-01: What is clean code
 ---
 
