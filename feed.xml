@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-21T05:03:03-05:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html">Pytest Book CHAPTER 2, Writing Test Functions</title><link href="https://10zinten.github.io/blog/software-engineering/python/pytest/testing/2020/07/03/pytest-book-ch2-notes.html" rel="alternate" type="text/html" title="Pytest Book CHAPTER 2, Writing Test Functions" /><published>2020-07-03T00:00:00-05:00</published><updated>2020-07-03T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/software-engineering/python/pytest/testing/2020/07/03/pytest-book-ch2-notes</id><content type="html" xml:base="https://10zinten.github.io/blog/software-engineering/python/pytest/testing/2020/07/03/pytest-book-ch2-notes.html">&lt;h1 id=&quot;expecting-exceptions&quot;&gt;Expecting Exceptions&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://10zinten.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://10zinten.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-11-23T00:43:34-06:00</updated><id>https://10zinten.github.io/blog/feed.xml</id><title type="html">Tenzin’s Blog</title><subtitle>blogging to share my knowledge to the world ;)</subtitle><entry><title type="html"></title><link href="https://10zinten.github.io/blog/2020/11/23/2020-11-23-chapter-01-what-is-clean-code.html" rel="alternate" type="text/html" title="" /><published>2020-11-23T00:43:34-06:00</published><updated>2020-11-23T00:43:34-06:00</updated><id>https://10zinten.github.io/blog/2020/11/23/2020-11-23-chapter-01-what-is-clean-code</id><content type="html" xml:base="https://10zinten.github.io/blog/2020/11/23/2020-11-23-chapter-01-what-is-clean-code.html">&lt;h1 id=&quot;what-is-code&quot;&gt;What is code&lt;/h1&gt;
+
+&lt;p&gt;One might argue that code is no longer the issue; that we should be concerned about the models and requirements instead and soon code will be generated instead of writtern. Business people will generate programs from requirement specification.&lt;/p&gt;
+
+&lt;p&gt;But the author aruged that we will never be rid of code, because code represents the details of the reqiurements. At some level those details cannot be ignored or abstracted by code generators; they have to be specified.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;Specifying requirements in such a detail that a machine can execute them is &lt;strong&gt;programming&lt;/strong&gt;. Such a specification is &lt;strong&gt;code&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;Remember that code is really the language in which we ultimately express the requirements.&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;cost-of-bad-code&quot;&gt;Cost of bad code&lt;/h2&gt;
+
+&lt;p&gt;The true story in the book concluded that &lt;strong&gt;it was the bad code that brought the company down&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You will not make the deadline by making the mess; the mess will indeed slow us down instantly and will force us to miss the deadline. The only way to make the deadline–the only way to go fast–is to keep the code as clean as possible at the times.&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html">Pytest Book CHAPTER 2, Writing Test Functions</title><link href="https://10zinten.github.io/blog/software-engineering/python/pytest/testing/2020/07/03/pytest-book-ch2-notes.html" rel="alternate" type="text/html" title="Pytest Book CHAPTER 2, Writing Test Functions" /><published>2020-07-03T00:00:00-05:00</published><updated>2020-07-03T00:00:00-05:00</updated><id>https://10zinten.github.io/blog/software-engineering/python/pytest/testing/2020/07/03/pytest-book-ch2-notes</id><content type="html" xml:base="https://10zinten.github.io/blog/software-engineering/python/pytest/testing/2020/07/03/pytest-book-ch2-notes.html">&lt;h1 id=&quot;expecting-exceptions&quot;&gt;Expecting Exceptions&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;Make sure a function (especially API function) raises expected exception.&lt;/li&gt;
   &lt;li&gt;Always raise exception from API function if desirable type is not passed.&lt;/li&gt;
